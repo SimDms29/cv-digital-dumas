@@ -134,7 +134,7 @@ export default function CVApp() {
                     <span>🇬🇧</span>
                     <span className="language-name">Anglais</span>
                   </div>
-                  <p className="language-level">TOEIC 965 pts<br />FCL 055 VFR Niveau 5</p>
+                  <p className="language-level">TOEIC 965 pts, Mai 2025<br />FCL 055 VFR Niveau 5</p>
                 </div>
               </div>
             </div>
@@ -258,10 +258,10 @@ export default function CVApp() {
                 <div className="timeline-dot accent" />
                 <div className="timeline-content">
                   <span className="timeline-badge accent">2023</span>
-                  <h3 className="timeline-title">Licence de Pilote Privé (PPL) ✈️</h3>
+                  <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
                   <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
                   <p className="timeline-description">
-                    Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Renforcement de la rigueur et de la coordination.
+                    Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Passage du FCL 055 : communications radio en anglais.
                   </p>
                 </div>
               </div>
