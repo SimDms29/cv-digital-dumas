@@ -670,6 +670,30 @@ box-shadow: 0 0 0 2px #6366f1, 0 0 0 5px rgba(99, 102, 241, 0.1);
 }
 
 /* ========================================
+   PROJECT LINK
+   ======================================== */
+
+.project-link {
+  color: #6366f1;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: #4f46e5;
+  text-decoration: underline;
+}
+
+.dark .project-link {
+  color: #a5b4fc;
+}
+
+.dark .project-link:hover {
+  color: #c7d2fe;
+}
+
+/* ========================================
    REFERENCES
    ======================================== */
 

@@ -1,0 +1,8 @@
+services:
+  cv:
+    build: .
+    container_name: cv-simon-dumas
+    restart: unless-stopped
+    ports:
+      - "3000:80"   # accès : http://ton-vps:3000
+                    # si tu as un reverse proxy (Nginx/Caddy), remplace par "127.0.0.1:3000:80"

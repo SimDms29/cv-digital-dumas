@@ -43,7 +43,10 @@ export default function CVApp() {
     'HTML/CSS/JS',
     'SQL',
     'WebSockets',
-    'MySQL'
+    'MySQL',
+    'Docker',
+    'VPS / Prod',
+    'React'
   ];
 
   return (
@@ -146,7 +149,7 @@ export default function CVApp() {
             <section id="profil" className={`content-section ${activeSection === 'profil' ? 'active' : ''}`}>
               <h2 className="section-title">Profil</h2>
               <p className="section-text">
-                Passionné par l'informatique, je me consacre au développement de solutions logicielles robustes et innovantes, avec un intérêt marqué pour les applications web et la gestion de données sensibles. Je m'intéresse également à l'économie et à la finance, en analysant les marchés et les investissements afin d'assurer une stabilité financière durable. Ma passion pour l'aviation m'a permis d'acquérir des compétences en rigueur, gestion du stress et travail d'équipe, que j'applique dans le domaine de l'IT. J'ambitionne une carrière en ingénierie logicielle en Suisse, alliant innovation technologique, finance et centres d'intérêt personnels.
+                Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. De l'idée au premier client, en passant par le développement et la mise en production sur VPS. En parralèle de mes activités logicielles, je vole en aéroclub. Cette passion pour l'aviation m'a appris la rigueur, la gestion du stress et le sens des responsabilités, des qualités que j'applique autant dans mes projets tech que dans mes ambitions entrepreneuriales. J'ambitionne une carrière en ingénierie logicielle à l'internationale, à l'intersection de la technique et du business.
               </p>
             </section>
 
@@ -155,10 +158,25 @@ export default function CVApp() {
               <h2 className="section-title">Expérience Professionnelle</h2>
               
               <div className="timeline">
-                <div className="timeline-dot" />
+                <div className="timeline-dot primary" />
+                <div className="timeline-content">
+                  <span className="timeline-badge">Avril 2026 - Aujourd'hui</span>
+                  <h3 className="timeline-title">Stagiaire Data Engineer</h3>
+                  <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
+                  <ul className="timeline-list">
+                    <li>Reverse engineering du modèle AIXM d'EuroControl afin de concevoir une base de données SQL simplifiée, normalisée et optimisée</li>
+                    <li>Analyse et compréhension du modèle AIXM (XML/XSD), identification des entités clés et de leurs relations</li>
+                    <li>Optimisation pour la performance des requêtes : normalisation, indexation</li>
+                    <li>Technologies utilisées : SQL, XML/XSD, modélisation de données</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div className="timeline" style={{ marginTop: '2rem' }}>
+                <div className="timeline-dot secondary" />
                 <div className="timeline-content">
                   <span className="timeline-badge">Avril - Juin 2025</span>
-                  <h3 className="timeline-title">Stage en Développement Informatique</h3>
+                  <h3 className="timeline-title">Stagiaire Développement Informatique</h3>
                   <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
                   <ul className="timeline-list">
                     <li>Développement d'une application web pour la mise à jour et la modification des données relatives à la documentation des zones militaires</li>
@@ -169,14 +187,40 @@ export default function CVApp() {
               </div>
             </section>
 
-            {/* Projets Master */}
+            {/* Projets */}
             <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
-              <h2 className="section-title">Projets Scolaires</h2>
-              
+              <h2 className="section-title">Projets</h2>
+
               <div className="timeline-list-container">
+                {/* WingFuel */}
+                <div className="timeline">
+                  <div className="timeline-dot accent" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge accent">2025 - Aujourd'hui</span>
+                    <h3 className="timeline-title">
+                      WingFuel —{' '}
+                      <a
+                        href="https://wingfuel.fr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                      >
+                        wingfuel.fr
+                      </a>
+                    </h3>
+                    <p className="timeline-subtitle">Projet Personnel · SaaS</p>
+                    <ul className="timeline-list">
+                      <li>Application SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel par une solution connectée</li>
+                      <li>Saisie pilote via QR code, suivi de stock, exports comptables (PDF, Excel, CSV) et génération automatique du dossier TICPE Douanes</li>
+                      <li>Déployé en production sur VPS, déjà utilisé par le Quiberon Air Club</li>
+                      <li>Technologies : React, Node.js, Docker, déploiement VPS</li>
+                    </ul>
+                  </div>
+                </div>
+
                 {/* Premier Projet */}
                 <div className="timeline">
-                  <div className="timeline-dot primary" /> {/* Point Violet/Bleu */}
+                  <div className="timeline-dot primary" />
                   <div className="timeline-content">
                     <span className="timeline-badge">M1, Semestre 1</span>
                     <h3 className="timeline-title">Projet Architecture Logicielle</h3>
@@ -190,7 +234,7 @@ export default function CVApp() {
 
                 {/* Deuxième Projet */}
                 <div className="timeline">
-                  <div className="timeline-dot secondary" /> {/* Point de transition */}
+                  <div className="timeline-dot secondary" />
                   <div className="timeline-content">
                     <span className="timeline-badge">M1, Semestre 1</span>
                     <h3 className="timeline-title">Projet IHM</h3>
@@ -280,9 +324,9 @@ export default function CVApp() {
                 </div>
 
                 <div className="reference-card">
-                  <h3 className="reference-name">Nicolas Viennot</h3>
-                  <p className="reference-company">CRNA Ouest, Pôle TVS</p>
-                  <p className="reference-info">📧 nicolas.viennot@aviation-civile.gouv.fr</p>
+                  <h3 className="reference-name">Damien Archer</h3>
+                  <p className="reference-company">CRNA Ouest, Pôle DATA</p>
+                  <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
                 </div>
               </div>
             </section>
@@ -294,7 +338,7 @@ export default function CVApp() {
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">
-            © 2025 Simon Dumas - Tous droits réservés
+            © 2026 Simon Dumas - Tous droits réservés
           </p>
         </div>
       </footer>
