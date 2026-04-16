@@ -297,16 +297,22 @@ export default function CVApp() {
             {/* Activités */}
             <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
               <h2 className="section-title">Activités Extracurriculaires</h2>
-              
-              <div className="timeline">
-                <div className="timeline-dot accent" />
-                <div className="timeline-content">
-                  <span className="timeline-badge accent">2023</span>
-                  <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
-                  <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
-                  <p className="timeline-description">
-                    Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Passage du FCL 055 : communications radio en anglais.
-                  </p>
+
+              <div className="activites-layout">
+                <div className="timeline">
+                  <div className="timeline-dot accent" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge accent">2023</span>
+                    <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
+                    <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
+                    <p className="timeline-description">
+                      Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Passage du FCL 055 : communications radio en anglais.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="avion-photo-wrapper">
+                  <img src="/avion.PNG" alt="En vol" className="avion-photo" />
                 </div>
               </div>
             </section>

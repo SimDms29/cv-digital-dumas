@@ -659,12 +659,173 @@ body {
 .footer-text { font-size: 0.75rem; }
 
 /* ========================================
+   PHOTO AVION
+   ======================================== */
+
+.activites-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.activites-layout .timeline {
+  flex: 1;
+}
+
+.avion-photo-wrapper {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.avion-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
+  display: block;
+  filter: brightness(0.88) contrast(1.05);
+}
+
+.dark .avion-photo {
+  border: 1px solid var(--border);
+}
+
+.light .avion-photo {
+  border: 1px solid var(--border-l);
+}
+
+/* ========================================
    PRINT
    ======================================== */
 
 @media print {
+  /* Force couleurs claires */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  body, .dark-mode, .light-mode {
+    background: #fff !important;
+  }
+
+  .app-container,
+  .app-container.dark,
+  .app-container.light {
+    background: #fff !important;
+    padding: 0 !important;
+    color: #111 !important;
+  }
+
   .header { display: none !important; }
-  .sidebar { position: relative !important; }
-  body, .app-container { background: white !important; color: black !important; }
+
+  .main-wrapper {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .grid-container {
+    display: grid !important;
+    grid-template-columns: 200px 1fr !important;
+    gap: 1.25rem !important;
+    align-items: start;
+  }
+
+  /* Sidebar */
+  .sidebar,
+  .dark .sidebar,
+  .light .sidebar {
+    position: relative !important;
+    top: auto !important;
+    background: #f8f8f8 !important;
+    border: 1px solid #e0e0e0 !important;
+    color: #111 !important;
+    padding: 1.25rem !important;
+  }
+
+  .sidebar-name,
+  .dark .sidebar-name   { color: #111 !important; }
+  .sidebar-subtitle,
+  .dark .sidebar-subtitle { color: #555 !important; }
+  .section-label,
+  .dark .section-label  { color: #888 !important; }
+  .contact-item,
+  .dark .contact-item   { color: #444 !important; }
+  .language-name,
+  .dark .language-name  { color: #111 !important; }
+  .language-level,
+  .dark .language-level { color: #555 !important; }
+
+  .skill-tag,
+  .dark .skill-tag {
+    color: #444 !important;
+    border-color: #ccc !important;
+    background: transparent !important;
+  }
+
+  .availability-badge { color: #1a9e6e !important; }
+  .availability-badge::before { background: #1a9e6e !important; }
+
+  /* Sections */
+  .content-section,
+  .dark .content-section,
+  .light .content-section {
+    background: #fff !important;
+    border: 1px solid #e8e8e8 !important;
+    color: #111 !important;
+    break-inside: avoid;
+    padding: 1.25rem !important;
+  }
+
+  .section-title,
+  .dark .section-title  { color: #111 !important; border-bottom-color: #ddd !important; }
+  .section-text,
+  .dark .section-text   { color: #444 !important; }
+
+  /* Timeline */
+  .timeline,
+  .dark .timeline       { border-left-color: #ddd !important; }
+  .timeline-dot         { background: #7b61ff !important; box-shadow: 0 0 0 3px #fff !important; }
+  .timeline-badge       { color: #7b61ff !important; }
+  .timeline-title       { color: #111 !important; }
+  .timeline-subtitle,
+  .dark .timeline-subtitle { color: #777 !important; }
+  .timeline-description,
+  .timeline-list,
+  .dark .timeline-description,
+  .dark .timeline-list  { color: #444 !important; }
+  .timeline-list li::before { color: #aaa !important; }
+
+  /* Références */
+  .reference-card,
+  .dark .reference-card {
+    background: #f8f8f8 !important;
+    border: 1px solid #e0e0e0 !important;
+    border-left: 2px solid #7b61ff !important;
+  }
+  .reference-name,
+  .dark .reference-name { color: #111 !important; }
+  .reference-company,
+  .reference-info,
+  .dark .reference-company,
+  .dark .reference-info { color: #555 !important; }
+
+  /* Photo avion — réduite en print */
+  .avion-photo-wrapper  { width: 100px !important; }
+  .avion-photo          { height: 140px !important; filter: none !important; }
+
+  /* Footer */
+  .footer,
+  .dark .footer         { border-top-color: #e0e0e0 !important; }
+  .footer-text,
+  .dark .footer-text    { color: #999 !important; }
+
+  /* Liens */
+  .project-link,
+  .dark .project-link   { color: #7b61ff !important; }
+
   .btn-download, .btn-theme { display: none !important; }
 }
