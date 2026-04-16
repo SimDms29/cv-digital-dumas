@@ -3,7 +3,7 @@ import { Moon, Sun, Download, Mail, Phone, MapPin } from 'lucide-react';
 import './App.css';
 
 export default function CVApp() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
@@ -213,7 +213,7 @@ export default function CVApp() {
                       <li>Application SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel par une solution connectée</li>
                       <li>Saisie pilote via QR code, suivi de stock, exports comptables (PDF, Excel, CSV) et génération automatique du dossier TICPE Douanes</li>
                       <li>Déployé en production sur VPS, déjà utilisé par le Quiberon Air Club</li>
-                      <li>Technologies : React, Node.js, Docker, déploiement VPS</li>
+                      <li>Technologies : React, Node.js, Docker, Python (FastAPI + Pydantic), déploiement VPS</li>
                     </ul>
                   </div>
                 </div>
