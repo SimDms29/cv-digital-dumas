@@ -1,0 +1,3 @@
+cv.wingfuel.fr {
+  reverse_proxy cv:80
+}
