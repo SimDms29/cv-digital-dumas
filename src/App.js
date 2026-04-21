@@ -323,13 +323,6 @@ export default function CVApp() {
               
               <div className="references-grid">
                 <div className="reference-card">
-                  <h3 className="reference-name">Charly Papin</h3>
-                  <p className="reference-company">HemoServices Brest</p>
-                  <p className="reference-info">📱 06 98 93 73 84</p>
-                  <p className="reference-info">📧 responsable29@hemo-services.com</p>
-                </div>
-
-                <div className="reference-card">
                   <h3 className="reference-name">Damien Archer</h3>
                   <p className="reference-company">CRNA Ouest, Pôle DATA</p>
                   <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
