@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Download, Mail, Phone, MapPin } from 'lucide-react';
+import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Briefcase } from 'lucide-react';
 import './App.css';
 
 export default function CVApp() {
@@ -8,7 +8,8 @@ export default function CVApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['profil', 'experience', 'formation', 'activites'];
+      // Ajout de 'services' dans la liste pour le suivi du scroll
+      const sections = ['profil', 'services', 'experience', 'projets', 'formation', 'activites'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -151,6 +152,54 @@ export default function CVApp() {
               <p className="section-text">
                 Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passioné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. J'ambitionne une carrière en ingénierie logicielle à l'internationale, à l'intersection de la technique et du business.
               </p>
+            </section>
+
+            {/* Section Services Freelance */}
+            <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
+              <h2 className="section-title">Services Freelance</h2>
+              <p className="section-text">
+                En complément de mon parcours académique et de mes projets personnels comme <strong>WingFuel</strong>, je propose mes services en freelance pour solutionner vos problématiques techniques et transformer vos besoins métiers en outils numériques robustes.
+              </p>
+              
+              <div className="services-grid" style={{ 
+                display: 'grid', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
+                gap: '1.5rem', 
+                marginTop: '1.5rem' 
+              }}>
+                <div className="service-card" style={{ 
+                  padding: '1.25rem', 
+                  borderRadius: '12px', 
+                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  <Code className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
+                </div>
+
+                <div className="service-card" style={{ 
+                  padding: '1.25rem', 
+                  borderRadius: '12px', 
+                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  <Database className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux de données complexes (AIXM/XML).</p>
+                </div>
+
+                <div className="service-card" style={{ 
+                  padding: '1.25rem', 
+                  borderRadius: '12px', 
+                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  <Rocket className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Déploiement & DevOps</h3>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
+                </div>
+              </div>
             </section>
 
             {/* Expérience */}
