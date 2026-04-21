@@ -153,13 +153,13 @@ export default function CVApp() {
             <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
               <h2 className="section-title">Services Freelance</h2>
               <p className="section-text">
-                En complément de mon parcours académique et de mes projets comme <strong>WingFuel</strong>, je propose mes services en freelance pour transformer vos besoins métiers en solutions numériques robustes et pérennes.
+                En complément de mon parcours académique et de mes projets personnels comme <strong>WingFuel</strong>, je propose mes services en freelance pour transformer vos besoins métiers en solutions numériques robustes et pérennes.
               </p>
               
               <div className="services-grid" style={{ 
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
-                gap: '1rem', 
+                gridTemplateColumns: 'repeat(2, 1fr)', // CHANGEMENT ICI POUR LE 2x2
+                gap: '1.5rem', 
                 marginTop: '1.5rem' 
               }}>
                 <div className="service-card" style={{ 
@@ -170,7 +170,7 @@ export default function CVApp() {
                 }}>
                   <Code className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications métier full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
                 </div>
 
                 <div className="service-card" style={{ 
@@ -181,7 +181,7 @@ export default function CVApp() {
                 }}>
                   <Database className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes.</p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML).</p>
                 </div>
 
                 <div className="service-card" style={{ 
@@ -192,7 +192,7 @@ export default function CVApp() {
                 }}>
                   <Rocket className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Déploiement</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement.</p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
                 </div>
 
                 <div className="service-card" style={{ 
@@ -211,7 +211,6 @@ export default function CVApp() {
             {/* Expérience */}
             <section id="experience" className={`content-section ${activeSection === 'experience' ? 'active' : ''}`}>
               <h2 className="section-title">Expérience Professionnelle</h2>
-              
               <div className="timeline">
                 <div className="timeline-dot primary" />
                 <div className="timeline-content">
@@ -220,7 +219,7 @@ export default function CVApp() {
                   <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
                   <ul className="timeline-list">
                     <li>Reverse engineering du modèle AIXM d'EuroControl afin de concevoir une base de données SQL simplifiée, normalisée et optimisée</li>
-                    <li>Analyse et compréhension du modèle AIXM (XML/XSD), identification des entités clés et de leurs relations</li>
+                    <li>Analyse et compréhension du modèle AIXM (XML/XSD)</li>
                     <li>Optimisation pour la performance des requêtes : normalisation, indexation</li>
                     <li>Technologies utilisées : SQL, XML/XSD, modélisation de données</li>
                   </ul>
@@ -234,8 +233,7 @@ export default function CVApp() {
                   <h3 className="timeline-title">Stagiaire Développement Informatique</h3>
                   <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
                   <ul className="timeline-list">
-                    <li>Développement d'une application web pour la mise à jour et la modification des données relatives à la documentation des zones militaires</li>
-                    <li>Collaboration avec les équipes informatiques de Brest, Rennes et Nantes pour assurer la fiabilité et la sécurité des données</li>
+                    <li>Développement d'une application web pour la documentation des zones militaires</li>
                     <li>Technologies utilisées : Python, WebSockets, MySQL, HTML, CSS, JavaScript</li>
                   </ul>
                 </div>
@@ -245,7 +243,6 @@ export default function CVApp() {
             {/* Projets */}
             <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
               <h2 className="section-title">Projets</h2>
-
               <div className="timeline-list-container">
                 <div className="timeline">
                   <div className="timeline-dot accent" />
@@ -253,45 +250,13 @@ export default function CVApp() {
                     <span className="timeline-badge accent">2025 - Aujourd'hui</span>
                     <h3 className="timeline-title">
                       WingFuel —{' '}
-                      <a
-                        href="https://wingfuel.fr"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-link"
-                      >
-                        wingfuel.fr
-                      </a>
+                      <a href="https://wingfuel.fr" target="_blank" rel="noopener noreferrer" className="project-link">wingfuel.fr</a>
                     </h3>
                     <p className="timeline-subtitle">Projet Personnel · SaaS</p>
                     <ul className="timeline-list">
-                      <li>Application SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel par une solution connectée</li>
-                      <li>Saisie pilote via QR code, suivi de stock, exports comptables et génération automatique du dossier TICPE</li>
-                      <li>Technologies : React, Node.js, Docker, Python (FastAPI + Pydantic), déploiement VPS</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="timeline">
-                  <div className="timeline-dot primary" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge">M1, Semestre 1</span>
-                    <h3 className="timeline-title">Projet Architecture Logicielle</h3>
-                    <p className="timeline-subtitle">UBO</p>
-                    <ul className="timeline-list">
-                      <li>Développement Java avec application intensive de design patterns (Factories, MVC, Visiteurs).</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="timeline">
-                  <div className="timeline-dot secondary" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge">M1, Semestre 1</span>
-                    <h3 className="timeline-title">Projet IHM</h3>
-                    <p className="timeline-subtitle">UBO</p>
-                    <ul className="timeline-list">
-                      <li>UBhome – Student Hub : site web communautaire (Auth, Messagerie, Forum).</li>
-                      <li>Technologies : Python, Django, HTML, CSS, JavaScript, SQL.</li>
+                      <li>Application SaaS de gestion carburant pour aéroclubs</li>
+                      <li>Saisie pilote via QR code, suivi de stock, exports comptables et dossier TICPE</li>
+                      <li>Technologies : React, Node.js, Docker, Python, déploiement VPS</li>
                     </ul>
                   </div>
                 </div>
@@ -307,17 +272,16 @@ export default function CVApp() {
                   <div className="timeline-content">
                     <span className="timeline-badge">2025 - 2027</span>
                     <h3 className="timeline-title">Master Informatique</h3>
-                    <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
+                    <p className="timeline-subtitle">UBO - Brest</p>
                     <p className="timeline-description">Ingénierie du logiciel.</p>
                   </div>
                 </div>
-
                 <div className="timeline">
                   <div className="timeline-dot secondary" />
                   <div className="timeline-content">
                     <span className="timeline-badge">2022 - 2025</span>
                     <h3 className="timeline-title">Licence en Informatique</h3>
-                    <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
+                    <p className="timeline-subtitle">UBO - Brest</p>
                   </div>
                 </div>
               </div>
@@ -332,8 +296,7 @@ export default function CVApp() {
                   <div className="timeline-content">
                     <span className="timeline-badge accent">2023</span>
                     <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
-                    <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
-                    <p className="timeline-description">Plus de 140 heures de vol. FCL 055 : Anglais aéronautique.</p>
+                    <p className="timeline-description">Plus de 140h de vol. Anglais aéronautique (FCL 055).</p>
                   </div>
                 </div>
                 <div className="avion-photo-wrapper">
@@ -342,7 +305,6 @@ export default function CVApp() {
               </div>
             </section>
 
-            {/* Références */}
             <section className="content-section">
               <h2 className="section-title">Références</h2>
               <div className="references-grid">
@@ -357,7 +319,6 @@ export default function CVApp() {
         </div>
       </div>
 
-      {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
           <p className="footer-text">© 2026 Simon Dumas - Tous droits réservés</p>
