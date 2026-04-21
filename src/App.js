@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Briefcase } from 'lucide-react';
+import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Wrench } from 'lucide-react';
 import './App.css';
 
 export default function CVApp() {
@@ -8,7 +8,6 @@ export default function CVApp() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Ajout de 'services' dans la liste pour le suivi du scroll
       const sections = ['profil', 'services', 'experience', 'projets', 'formation', 'activites'];
       const scrollPosition = window.scrollY + 200;
 
@@ -73,7 +72,6 @@ export default function CVApp() {
         <div className="grid-container">
           {/* Sidebar */}
           <aside className="sidebar">
-            {/* Avatar */}
             <div className="avatar-container">
               <div className="avatar">
                 <img 
@@ -90,7 +88,6 @@ export default function CVApp() {
               Développeur Logiciel<br />Master Ingénierie du Logiciel
             </p>
 
-            {/* Contact */}
             <div className="sidebar-section">
               <h3 className="section-label">Contact</h3>
               <a href="mailto:dumassimon22@gmail.com" className="contact-item">
@@ -110,7 +107,6 @@ export default function CVApp() {
               </div>
             </div>
 
-            {/* Compétences */}
             <div className="sidebar-section">
               <h3 className="section-label">Compétences</h3>
               <div className="skills-container">
@@ -122,7 +118,6 @@ export default function CVApp() {
               </div>
             </div>
 
-            {/* Langues */}
             <div className="sidebar-section">
               <h3 className="section-label">Langues</h3>
               <div className="languages-container">
@@ -158,13 +153,13 @@ export default function CVApp() {
             <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
               <h2 className="section-title">Services Freelance</h2>
               <p className="section-text">
-                En complément de mon parcours académique et de mes projets personnels comme <strong>WingFuel</strong>, je propose mes services en freelance pour solutionner vos problématiques techniques et transformer vos besoins métiers en outils numériques robustes.
+                En complément de mon parcours académique et de mes projets comme <strong>WingFuel</strong>, je propose mes services en freelance pour transformer vos besoins métiers en solutions numériques robustes et pérennes.
               </p>
               
               <div className="services-grid" style={{ 
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', 
-                gap: '1.5rem', 
+                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', 
+                gap: '1rem', 
                 marginTop: '1.5rem' 
               }}>
                 <div className="service-card" style={{ 
@@ -175,7 +170,7 @@ export default function CVApp() {
                 }}>
                   <Code className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications métier full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
                 </div>
 
                 <div className="service-card" style={{ 
@@ -186,7 +181,7 @@ export default function CVApp() {
                 }}>
                   <Database className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux de données complexes (AIXM/XML).</p>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes.</p>
                 </div>
 
                 <div className="service-card" style={{ 
@@ -196,8 +191,19 @@ export default function CVApp() {
                   border: '1px solid var(--border-color)'
                 }}>
                   <Rocket className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Déploiement & DevOps</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Déploiement</h3>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement.</p>
+                </div>
+
+                <div className="service-card" style={{ 
+                  padding: '1.25rem', 
+                  borderRadius: '12px', 
+                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
+                  border: '1px solid var(--border-color)'
+                }}>
+                  <Wrench className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Maintenance & Évolutions</h3>
+                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Forfaits de maintenance personnalisés : correctifs de sécurité, mises à jour techniques et ajout de fonctionnalités.</p>
                 </div>
               </div>
             </section>
@@ -241,7 +247,6 @@ export default function CVApp() {
               <h2 className="section-title">Projets</h2>
 
               <div className="timeline-list-container">
-                {/* WingFuel */}
                 <div className="timeline">
                   <div className="timeline-dot accent" />
                   <div className="timeline-content">
@@ -260,14 +265,12 @@ export default function CVApp() {
                     <p className="timeline-subtitle">Projet Personnel · SaaS</p>
                     <ul className="timeline-list">
                       <li>Application SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel par une solution connectée</li>
-                      <li>Saisie pilote via QR code, suivi de stock, exports comptables (PDF, Excel, CSV) et génération automatique du dossier TICPE Douanes</li>
-                      <li>Déployé en production sur VPS, déjà utilisé par le Quiberon Air Club</li>
+                      <li>Saisie pilote via QR code, suivi de stock, exports comptables et génération automatique du dossier TICPE</li>
                       <li>Technologies : React, Node.js, Docker, Python (FastAPI + Pydantic), déploiement VPS</li>
                     </ul>
                   </div>
                 </div>
 
-                {/* Premier Projet */}
                 <div className="timeline">
                   <div className="timeline-dot primary" />
                   <div className="timeline-content">
@@ -275,13 +278,11 @@ export default function CVApp() {
                     <h3 className="timeline-title">Projet Architecture Logicielle</h3>
                     <p className="timeline-subtitle">UBO</p>
                     <ul className="timeline-list">
-                      <li>Développement d'une application Java, réflexion menée sur l'architecture (Visiteurs, Factories, MVC...), utilisation de designs patterns.</li>
-                      <li>Technologies utilisées : Java, UML.</li>
+                      <li>Développement Java avec application intensive de design patterns (Factories, MVC, Visiteurs).</li>
                     </ul>
                   </div>
                 </div>
 
-                {/* Deuxième Projet */}
                 <div className="timeline">
                   <div className="timeline-dot secondary" />
                   <div className="timeline-content">
@@ -289,8 +290,8 @@ export default function CVApp() {
                     <h3 className="timeline-title">Projet IHM</h3>
                     <p className="timeline-subtitle">UBO</p>
                     <ul className="timeline-list">
-                      <li>UBhome – Student Hub : site web communautaire (Auth, Profils, Calendrier, Messagerie, Forum).</li>
-                      <li>Technologies utilisées : Python, Django, HTML, CSS, JavaScript, SQL, GitHub.</li>
+                      <li>UBhome – Student Hub : site web communautaire (Auth, Messagerie, Forum).</li>
+                      <li>Technologies : Python, Django, HTML, CSS, JavaScript, SQL.</li>
                     </ul>
                   </div>
                 </div>
@@ -300,44 +301,23 @@ export default function CVApp() {
             {/* Formation */}
             <section id="formation" className={`content-section ${activeSection === 'formation' ? 'active' : ''}`}>
               <h2 className="section-title">Formation</h2>
-              
               <div className="timeline-list-container">
-                {/* Master */}
                 <div className="timeline">
                   <div className="timeline-dot primary" />
                   <div className="timeline-content">
                     <span className="timeline-badge">2025 - 2027</span>
                     <h3 className="timeline-title">Master Informatique</h3>
                     <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
-                    <p className="timeline-description">
-                      Diplôme National de Master, Ingénierie du logiciel.
-                    </p>
+                    <p className="timeline-description">Ingénierie du logiciel.</p>
                   </div>
                 </div>
 
-                {/* Licence */}
                 <div className="timeline">
                   <div className="timeline-dot secondary" />
                   <div className="timeline-content">
                     <span className="timeline-badge">2022 - 2025</span>
                     <h3 className="timeline-title">Licence en Informatique</h3>
                     <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
-                    <p className="timeline-description">
-                      Diplôme National de Licence, Parcours Fondements et Applications. Focus sur la programmation, les algorithmes et les applications pratiques.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Bac */}
-                <div className="timeline">
-                  <div className="timeline-dot tertiary" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge">2022</span>
-                    <h3 className="timeline-title">Baccalauréat Général</h3>
-                    <p className="timeline-subtitle">Lycée de l'Iroise - Brest</p>
-                    <p className="timeline-description">
-                      Spécialités Mathématiques et Physique, Mention Bien.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -346,7 +326,6 @@ export default function CVApp() {
             {/* Activités */}
             <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
               <h2 className="section-title">Activités Extracurriculaires</h2>
-
               <div className="activites-layout">
                 <div className="timeline">
                   <div className="timeline-dot accent" />
@@ -354,12 +333,9 @@ export default function CVApp() {
                     <span className="timeline-badge accent">2023</span>
                     <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
                     <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
-                    <p className="timeline-description">
-                      Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Passage du FCL 055 : communications radio en anglais.
-                    </p>
+                    <p className="timeline-description">Plus de 140 heures de vol. FCL 055 : Anglais aéronautique.</p>
                   </div>
                 </div>
-
                 <div className="avion-photo-wrapper">
                   <img src="/avion.PNG" alt="En vol" className="avion-photo" />
                 </div>
@@ -369,7 +345,6 @@ export default function CVApp() {
             {/* Références */}
             <section className="content-section">
               <h2 className="section-title">Références</h2>
-              
               <div className="references-grid">
                 <div className="reference-card">
                   <h3 className="reference-name">Damien Archer</h3>
@@ -385,9 +360,7 @@ export default function CVApp() {
       {/* Footer */}
       <footer className="footer">
         <div className="footer-content">
-          <p className="footer-text">
-            © 2026 Simon Dumas - Tous droits réservés
-          </p>
+          <p className="footer-text">© 2026 Simon Dumas - Tous droits réservés</p>
         </div>
       </footer>
     </div>
