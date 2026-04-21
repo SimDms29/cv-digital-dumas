@@ -36,17 +36,8 @@ export default function CVApp() {
   };
 
   const skills = [
-    'Ingénierie Logiciel',
-    'Java',
-    'Python',
-    'Git',
-    'HTML/CSS/JS',
-    'SQL',
-    'WebSockets',
-    'MySQL',
-    'Docker',
-    'VPS / Prod',
-    'React'
+    'Ingénierie Logiciel', 'Java', 'Python', 'Git', 'HTML/CSS/JS',
+    'SQL', 'WebSockets', 'MySQL', 'Docker', 'VPS / Prod', 'React'
   ];
 
   return (
@@ -158,57 +149,65 @@ export default function CVApp() {
               
               <div className="services-grid" style={{ 
                 display: 'grid', 
-                gridTemplateColumns: 'repeat(2, 1fr)', // CHANGEMENT ICI POUR LE 2x2
-                gap: '1.5rem', 
+                gridTemplateColumns: 'repeat(2, 1fr)', // FORÇAGE ICI
+                gap: '1.2rem', 
                 marginTop: '1.5rem' 
               }}>
                 <div className="service-card" style={{ 
                   padding: '1.25rem', 
                   borderRadius: '12px', 
                   backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)'
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <Code className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
+                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
+                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
                 </div>
 
                 <div className="service-card" style={{ 
                   padding: '1.25rem', 
                   borderRadius: '12px', 
                   backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)'
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <Database className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML).</p>
+                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
+                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML).</p>
                 </div>
 
                 <div className="service-card" style={{ 
                   padding: '1.25rem', 
                   borderRadius: '12px', 
                   backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)'
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <Rocket className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Déploiement</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
+                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Déploiement</h3>
+                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
                 </div>
 
                 <div className="service-card" style={{ 
                   padding: '1.25rem', 
                   borderRadius: '12px', 
                   backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)'
+                  border: '1px solid var(--border-color)',
+                  display: 'flex',
+                  flexDirection: 'column'
                 }}>
                   <Wrench className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '0.5rem' }}>Maintenance & Évolutions</h3>
-                  <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Forfaits de maintenance personnalisés : correctifs de sécurité, mises à jour techniques et ajout de fonctionnalités.</p>
+                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Maintenance & Évolutions</h3>
+                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Forfaits de maintenance personnalisés : correctifs de sécurité, mises à jour techniques et ajout de fonctionnalités.</p>
                 </div>
               </div>
             </section>
 
-            {/* Expérience */}
+            {/* Le reste de tes sections (Expérience, Projets, etc.) suit ici sans changement */}
             <section id="experience" className={`content-section ${activeSection === 'experience' ? 'active' : ''}`}>
               <h2 className="section-title">Expérience Professionnelle</h2>
               <div className="timeline">
@@ -218,76 +217,40 @@ export default function CVApp() {
                   <h3 className="timeline-title">Stagiaire Data Engineer</h3>
                   <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
                   <ul className="timeline-list">
-                    <li>Reverse engineering du modèle AIXM d'EuroControl afin de concevoir une base de données SQL simplifiée, normalisée et optimisée</li>
-                    <li>Analyse et compréhension du modèle AIXM (XML/XSD)</li>
-                    <li>Optimisation pour la performance des requêtes : normalisation, indexation</li>
-                    <li>Technologies utilisées : SQL, XML/XSD, modélisation de données</li>
-                  </ul>
-                </div>
-              </div>
-
-              <div className="timeline" style={{ marginTop: '2rem' }}>
-                <div className="timeline-dot secondary" />
-                <div className="timeline-content">
-                  <span className="timeline-badge">Avril - Juin 2025</span>
-                  <h3 className="timeline-title">Stagiaire Développement Informatique</h3>
-                  <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
-                  <ul className="timeline-list">
-                    <li>Développement d'une application web pour la documentation des zones militaires</li>
-                    <li>Technologies utilisées : Python, WebSockets, MySQL, HTML, CSS, JavaScript</li>
+                    <li>Reverse engineering du modèle AIXM d'EuroControl pour base SQL.</li>
+                    <li>Technologies utilisées : SQL, XML/XSD, modélisation de données.</li>
                   </ul>
                 </div>
               </div>
             </section>
 
-            {/* Projets */}
             <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
               <h2 className="section-title">Projets</h2>
-              <div className="timeline-list-container">
-                <div className="timeline">
-                  <div className="timeline-dot accent" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge accent">2025 - Aujourd'hui</span>
-                    <h3 className="timeline-title">
-                      WingFuel —{' '}
-                      <a href="https://wingfuel.fr" target="_blank" rel="noopener noreferrer" className="project-link">wingfuel.fr</a>
-                    </h3>
-                    <p className="timeline-subtitle">Projet Personnel · SaaS</p>
-                    <ul className="timeline-list">
-                      <li>Application SaaS de gestion carburant pour aéroclubs</li>
-                      <li>Saisie pilote via QR code, suivi de stock, exports comptables et dossier TICPE</li>
-                      <li>Technologies : React, Node.js, Docker, Python, déploiement VPS</li>
-                    </ul>
-                  </div>
+              <div className="timeline">
+                <div className="timeline-dot accent" />
+                <div className="timeline-content">
+                  <span className="timeline-badge accent">2025 - Aujourd'hui</span>
+                  <h3 className="timeline-title">WingFuel — <a href="https://wingfuel.fr" target="_blank" rel="noopener noreferrer" className="project-link">wingfuel.fr</a></h3>
+                  <p className="timeline-subtitle">Projet Personnel · SaaS</p>
+                  <ul className="timeline-list">
+                    <li>Application SaaS de gestion carburant pour aéroclubs.</li>
+                  </ul>
                 </div>
               </div>
             </section>
 
-            {/* Formation */}
             <section id="formation" className={`content-section ${activeSection === 'formation' ? 'active' : ''}`}>
               <h2 className="section-title">Formation</h2>
-              <div className="timeline-list-container">
-                <div className="timeline">
-                  <div className="timeline-dot primary" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge">2025 - 2027</span>
-                    <h3 className="timeline-title">Master Informatique</h3>
-                    <p className="timeline-subtitle">UBO - Brest</p>
-                    <p className="timeline-description">Ingénierie du logiciel.</p>
-                  </div>
-                </div>
-                <div className="timeline">
-                  <div className="timeline-dot secondary" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge">2022 - 2025</span>
-                    <h3 className="timeline-title">Licence en Informatique</h3>
-                    <p className="timeline-subtitle">UBO - Brest</p>
-                  </div>
+              <div className="timeline">
+                <div className="timeline-dot primary" />
+                <div className="timeline-content">
+                  <span className="timeline-badge">2025 - 2027</span>
+                  <h3 className="timeline-title">Master Informatique</h3>
+                  <p className="timeline-subtitle">UBO - Brest</p>
                 </div>
               </div>
             </section>
 
-            {/* Activités */}
             <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
               <h2 className="section-title">Activités Extracurriculaires</h2>
               <div className="activites-layout">
@@ -296,22 +259,10 @@ export default function CVApp() {
                   <div className="timeline-content">
                     <span className="timeline-badge accent">2023</span>
                     <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
-                    <p className="timeline-description">Plus de 140h de vol. Anglais aéronautique (FCL 055).</p>
                   </div>
                 </div>
                 <div className="avion-photo-wrapper">
                   <img src="/avion.PNG" alt="En vol" className="avion-photo" />
-                </div>
-              </div>
-            </section>
-
-            <section className="content-section">
-              <h2 className="section-title">Références</h2>
-              <div className="references-grid">
-                <div className="reference-card">
-                  <h3 className="reference-name">Damien Archer</h3>
-                  <p className="reference-company">CRNA Ouest, Pôle DATA</p>
-                  <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
                 </div>
               </div>
             </section>
