@@ -131,7 +131,7 @@ export default function CVApp() {
             <section id="profil" className={`content-section ${activeSection === 'profil' ? 'active' : ''}`}>
               <h2 className="section-title">Profil</h2>
               <p className="section-text">
-                Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passionné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. J'ambitionne une carrière en ingénierie logicielle à l'internationale, à l'intersection de la technique et du business.
+                Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passionné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. Disponible en freelance, remote de préférence, ouvert aux opportunités en France et à l'international.
               </p>
             </section>
 
