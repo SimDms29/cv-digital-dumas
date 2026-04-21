@@ -65,11 +65,7 @@ export default function CVApp() {
           <aside className="sidebar">
             <div className="avatar-container">
               <div className="avatar">
-                <img 
-                  src="/avatar.JPG" 
-                  alt="Simon Dumas" 
-                  className="avatar-image"
-                />
+                <img src="/avatar.JPG" alt="Simon Dumas" className="avatar-image" />
               </div>
               <div className="availability-badge">Disponible</div>
             </div>
@@ -102,9 +98,7 @@ export default function CVApp() {
               <h3 className="section-label">Compétences</h3>
               <div className="skills-container">
                 {skills.map((skill, index) => (
-                  <span key={index} className="skill-tag">
-                    {skill}
-                  </span>
+                  <span key={index} className="skill-tag">{skill}</span>
                 ))}
               </div>
             </div>
@@ -132,140 +126,211 @@ export default function CVApp() {
 
           {/* Contenu principal */}
           <main className="main-content">
+
             {/* Profil */}
             <section id="profil" className={`content-section ${activeSection === 'profil' ? 'active' : ''}`}>
               <h2 className="section-title">Profil</h2>
               <p className="section-text">
-                Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passioné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. J'ambitionne une carrière en ingénierie logicielle à l'internationale, à l'intersection de la technique et du business.
+                Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passionné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. J'ambitionne une carrière en ingénierie logicielle à l'internationale, à l'intersection de la technique et du business.
               </p>
             </section>
 
-            {/* Section Services Freelance */}
+            {/* Services Freelance */}
             <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
               <h2 className="section-title">Services Freelance</h2>
               <p className="section-text">
                 En complément de mon parcours académique et de mes projets personnels comme <strong>WingFuel</strong>, je propose mes services en freelance pour transformer vos besoins métiers en solutions numériques robustes et pérennes.
               </p>
-              
-              <div className="services-grid" style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(2, 1fr)', // FORÇAGE ICI
-                gap: '1.2rem', 
-                marginTop: '1.5rem' 
-              }}>
-                <div className="service-card" style={{ 
-                  padding: '1.25rem', 
-                  borderRadius: '12px', 
-                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  <Code className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Développement Web & SaaS</h3>
-                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
+
+              <div className="services-grid">
+                <div className="service-card">
+                  <Code className="service-icon" size={24} />
+                  <h3 className="service-title">Développement Web & SaaS</h3>
+                  <p className="service-text">Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production.</p>
                 </div>
 
-                <div className="service-card" style={{ 
-                  padding: '1.25rem', 
-                  borderRadius: '12px', 
-                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  <Database className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Architecture de Données</h3>
-                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML).</p>
+                <div className="service-card">
+                  <Database className="service-icon" size={24} />
+                  <h3 className="service-title">Architecture de Données</h3>
+                  <p className="service-text">Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML).</p>
                 </div>
 
-                <div className="service-card" style={{ 
-                  padding: '1.25rem', 
-                  borderRadius: '12px', 
-                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  <Rocket className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Déploiement</h3>
-                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
+                <div className="service-card">
+                  <Rocket className="service-icon" size={24} />
+                  <h3 className="service-title">Déploiement</h3>
+                  <p className="service-text">Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables.</p>
                 </div>
 
-                <div className="service-card" style={{ 
-                  padding: '1.25rem', 
-                  borderRadius: '12px', 
-                  backgroundColor: darkMode ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.02)',
-                  border: '1px solid var(--border-color)',
-                  display: 'flex',
-                  flexDirection: 'column'
-                }}>
-                  <Wrench className="accent-color" size={24} style={{ marginBottom: '0.75rem' }} />
-                  <h3 style={{ fontSize: '1.05rem', marginBottom: '0.5rem' }}>Maintenance & Évolutions</h3>
-                  <p style={{ fontSize: '0.85rem', opacity: 0.8, lineHeight: '1.4' }}>Forfaits de maintenance personnalisés : correctifs de sécurité, mises à jour techniques et ajout de fonctionnalités.</p>
+                <div className="service-card">
+                  <Wrench className="service-icon" size={24} />
+                  <h3 className="service-title">Maintenance & Évolutions</h3>
+                  <p className="service-text">Forfaits de maintenance personnalisés : correctifs de sécurité, mises à jour techniques et ajout de fonctionnalités.</p>
                 </div>
               </div>
             </section>
 
-            {/* Le reste de tes sections (Expérience, Projets, etc.) suit ici sans changement */}
+            {/* Expérience */}
             <section id="experience" className={`content-section ${activeSection === 'experience' ? 'active' : ''}`}>
               <h2 className="section-title">Expérience Professionnelle</h2>
-              <div className="timeline">
-                <div className="timeline-dot primary" />
-                <div className="timeline-content">
-                  <span className="timeline-badge">Avril 2026 - Aujourd'hui</span>
-                  <h3 className="timeline-title">Stagiaire Data Engineer</h3>
-                  <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
-                  <ul className="timeline-list">
-                    <li>Reverse engineering du modèle AIXM d'EuroControl pour base SQL.</li>
-                    <li>Technologies utilisées : SQL, XML/XSD, modélisation de données.</li>
-                  </ul>
+
+              <div className="timeline-list-container">
+                <div className="timeline">
+                  <div className="timeline-dot primary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">Avril 2026 - Aujourd'hui</span>
+                    <h3 className="timeline-title">Stagiaire Data Engineer</h3>
+                    <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
+                    <ul className="timeline-list">
+                      <li>Reverse engineering du modèle AIXM d'EuroControl afin de concevoir une base de données SQL simplifiée, normalisée et optimisée</li>
+                      <li>Analyse et compréhension du modèle AIXM (XML/XSD), identification des entités clés et de leurs relations</li>
+                      <li>Optimisation pour la performance des requêtes : normalisation, indexation</li>
+                      <li>Technologies utilisées : SQL, XML/XSD, modélisation de données</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="timeline">
+                  <div className="timeline-dot secondary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">Avril - Juin 2025</span>
+                    <h3 className="timeline-title">Stagiaire Développement Informatique</h3>
+                    <p className="timeline-subtitle">CRNA-Ouest, DGAC - Brest</p>
+                    <ul className="timeline-list">
+                      <li>Développement d'une application web pour la mise à jour et la modification des données relatives à la documentation des zones militaires</li>
+                      <li>Collaboration avec les équipes informatiques de Brest, Rennes et Nantes pour assurer la fiabilité et la sécurité des données</li>
+                      <li>Technologies utilisées : Python, WebSockets, MySQL, HTML, CSS, JavaScript</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
 
+            {/* Projets */}
             <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
               <h2 className="section-title">Projets</h2>
-              <div className="timeline">
-                <div className="timeline-dot accent" />
-                <div className="timeline-content">
-                  <span className="timeline-badge accent">2025 - Aujourd'hui</span>
-                  <h3 className="timeline-title">WingFuel — <a href="https://wingfuel.fr" target="_blank" rel="noopener noreferrer" className="project-link">wingfuel.fr</a></h3>
-                  <p className="timeline-subtitle">Projet Personnel · SaaS</p>
-                  <ul className="timeline-list">
-                    <li>Application SaaS de gestion carburant pour aéroclubs.</li>
-                  </ul>
+
+              <div className="timeline-list-container">
+                <div className="timeline">
+                  <div className="timeline-dot accent" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge accent">2025 - Aujourd'hui</span>
+                    <h3 className="timeline-title">
+                      WingFuel —{' '}
+                      <a href="https://wingfuel.fr" target="_blank" rel="noopener noreferrer" className="project-link">
+                        wingfuel.fr
+                      </a>
+                    </h3>
+                    <p className="timeline-subtitle">Projet Personnel · SaaS</p>
+                    <ul className="timeline-list">
+                      <li>Application SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel par une solution connectée</li>
+                      <li>Saisie pilote via QR code, suivi de stock, exports comptables (PDF, Excel, CSV) et génération automatique du dossier TICPE Douanes</li>
+                      <li>Déployé en production sur VPS, déjà utilisé par le Quiberon Air Club</li>
+                      <li>Technologies : React, Node.js, Docker, déploiement VPS</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="timeline">
+                  <div className="timeline-dot primary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">M1, Semestre 1</span>
+                    <h3 className="timeline-title">Projet Architecture Logicielle</h3>
+                    <p className="timeline-subtitle">UBO</p>
+                    <ul className="timeline-list">
+                      <li>Développement d'une application Java, réflexion menée sur l'architecture (Visiteurs, Factories, MVC...), utilisation de designs patterns.</li>
+                      <li>Technologies utilisées : Java, UML.</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="timeline">
+                  <div className="timeline-dot secondary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">M1, Semestre 1</span>
+                    <h3 className="timeline-title">Projet IHM</h3>
+                    <p className="timeline-subtitle">UBO</p>
+                    <ul className="timeline-list">
+                      <li>UBhome – Student Hub : site web communautaire (Auth, Profils, Calendrier, Messagerie, Forum).</li>
+                      <li>Technologies utilisées : Python, Django, HTML, CSS, JavaScript, SQL, GitHub.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
 
+            {/* Formation */}
             <section id="formation" className={`content-section ${activeSection === 'formation' ? 'active' : ''}`}>
               <h2 className="section-title">Formation</h2>
-              <div className="timeline">
-                <div className="timeline-dot primary" />
-                <div className="timeline-content">
-                  <span className="timeline-badge">2025 - 2027</span>
-                  <h3 className="timeline-title">Master Informatique</h3>
-                  <p className="timeline-subtitle">UBO - Brest</p>
+
+              <div className="timeline-list-container">
+                <div className="timeline">
+                  <div className="timeline-dot primary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">2025 - 2027</span>
+                    <h3 className="timeline-title">Master Informatique</h3>
+                    <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
+                    <p className="timeline-description">Diplôme National de Master, Ingénierie du logiciel.</p>
+                  </div>
+                </div>
+
+                <div className="timeline">
+                  <div className="timeline-dot secondary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">2022 - 2025</span>
+                    <h3 className="timeline-title">Licence en Informatique</h3>
+                    <p className="timeline-subtitle">Université de Bretagne Occidentale - Brest</p>
+                    <p className="timeline-description">Diplôme National de Licence, Parcours Fondements et Applications. Focus sur la programmation, les algorithmes et les applications pratiques.</p>
+                  </div>
+                </div>
+
+                <div className="timeline">
+                  <div className="timeline-dot tertiary" />
+                  <div className="timeline-content">
+                    <span className="timeline-badge">2022</span>
+                    <h3 className="timeline-title">Baccalauréat Général</h3>
+                    <p className="timeline-subtitle">Lycée de l'Iroise - Brest</p>
+                    <p className="timeline-description">Spécialités Mathématiques et Physique, Mention Bien.</p>
+                  </div>
                 </div>
               </div>
             </section>
 
+            {/* Activités */}
             <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
               <h2 className="section-title">Activités Extracurriculaires</h2>
+
               <div className="activites-layout">
                 <div className="timeline">
                   <div className="timeline-dot accent" />
                   <div className="timeline-content">
                     <span className="timeline-badge accent">2023</span>
                     <h3 className="timeline-title">Licence de Pilote Privé (PPL)</h3>
+                    <p className="timeline-subtitle">Aéroclub Brest Finistère</p>
+                    <p className="timeline-description">
+                      Plus de 140 heures de vol avec qualifications annexes (EFIS, Pas Variable, TW...). Passage du FCL 055 : communications radio en anglais.
+                    </p>
                   </div>
                 </div>
+
                 <div className="avion-photo-wrapper">
                   <img src="/avion.PNG" alt="En vol" className="avion-photo" />
                 </div>
               </div>
             </section>
+
+            {/* Références */}
+            <section className="content-section">
+              <h2 className="section-title">Références</h2>
+
+              <div className="references-grid">
+                <div className="reference-card reference-card--full">
+                  <h3 className="reference-name">Damien Archer</h3>
+                  <p className="reference-company">CRNA Ouest, Pôle DATA</p>
+                  <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
+                </div>
+              </div>
+            </section>
+
           </main>
         </div>
       </div>

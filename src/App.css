@@ -623,6 +623,11 @@ body {
   transition: border-color 0.2s ease;
 }
 
+.reference-card--full {
+  grid-column: 1 / -1;
+  padding: 1.75rem 2rem;
+}
+
 .reference-card:hover { border-color: var(--accent) !important; }
 
 .reference-name {
@@ -657,6 +662,55 @@ body {
 }
 
 .footer-text { font-size: 0.75rem; }
+
+/* ========================================
+   SERVICES
+   ======================================== */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  padding: 1.25rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.dark .service-card  { background: var(--bg-raised); }
+.light .service-card { background: var(--bg-raised-l); border-color: var(--border-l); }
+
+.service-card:hover  { border-color: var(--accent); }
+
+.service-icon {
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  opacity: 0.85;
+}
+
+.service-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.service-text {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  opacity: 0.7;
+}
 
 /* ========================================
    PHOTO AVION
