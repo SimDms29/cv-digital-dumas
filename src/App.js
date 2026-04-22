@@ -5,7 +5,7 @@ import './App.css';
 const content = {
   fr: {
     title: "Simon Dumas",
-    subtitle: "Développeur Logiciel\nMaster Ingénierie du Logiciel",
+    subtitle: "Développeur Full Stack, \nMaster Ingénierie du Logiciel",
     download: "Télécharger PDF",
     status: "Disponible",
     contact: "Contact",
@@ -39,11 +39,11 @@ const content = {
             job: "Stagiaire Data Engineer",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
-              "Reverse engineering du modèle AIXM d'EuroControl pour concevoir une base SQL normalisée",
-              "Analyse du modèle AIXM (XML/XSD), identification des entités clés",
-              "Optimisation de performance : normalisation, indexation",
-              "Développement de parsers Python avancés pour l'automatisation du traitement, de la validation et de la conversion de données.",
-              "Technologies : SQL, XML/XSD, Modélisation de données"
+              "Modernisation de l'architecture : Transition d'un flux ETL monolithique vers une architecture ELT agile",
+              "Ingestion de flux complexes : Développement de pipelines Python pour le chargement de données XML (AIXM) brutes en Landing Zone (PostgreSQL JSONB)",
+              "Modélisation dbt : Conception de modèles SQL modulaires pour le nettoyage, la résolution de FK et la création de Data Marts",
+              "Qualité & Performance : Implémentation de tests dbt automatisés et optimisation des performances via le moteur SQL natif",
+              "Technologies : dbt, PostgreSQL (JSONB), Python, AIXM/XML, SQL"
             ]
           },
           {
@@ -130,11 +130,11 @@ const content = {
             job: "Data Engineer Intern",
             company: "CRNA-Ouest, DGAC (French ATC) - Brest",
             tasks: [
-              "Reverse engineering EuroControl's AIXM model to design a normalized SQL database",
-              "Analysis of AIXM model (XML/XSD), identifying key entities and relationships",
-              "Query performance optimization: normalization, indexing",
-              "Developed advanced Python parsers for automated data processing, validation, and conversion", // La version pro
-              "Technologies: SQL, XML/XSD, Data Modeling, Python"
+              "Architecture Modernization: Transitioning from a monolithic ETL flow to an agile ELT architecture",
+              "Complex Data Ingestion: Developing Python pipelines for raw XML (AIXM) data loading into a PostgreSQL Landing Zone (JSONB)",
+              "dbt Modeling: Designing modular SQL models for data cleaning, FK resolution, and Data Mart creation",
+              "Quality & Performance: Implementing automated dbt tests and optimizing performance using the native SQL engine",
+              "Technologies: dbt, PostgreSQL (JSONB), Python, AIXM/XML, SQL"
             ]
           },
           {
