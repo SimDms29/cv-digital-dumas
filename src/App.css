@@ -330,6 +330,7 @@ body {
   transition: border-color 0.3s ease;
 }
 
+
 @media (min-width: 1024px) {
   .sidebar {
     position: sticky;
@@ -754,132 +755,129 @@ body {
    ======================================== */
 
 @media print {
-  /* Force couleurs claires */
+  /* 1. Reset Global pour le papier */
+  @page {
+    margin: 1cm; /* Marges physiques de la feuille */
+    size: A4;
+  }
+
   * {
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
   }
 
-  body, .dark-mode, .light-mode {
-    background: #fff !important;
+  body {
+    background: white !important;
+    font-size: 10pt; /* Taille de police standard CV */
   }
 
-  .app-container,
-  .app-container.dark,
-  .app-container.light {
-    background: #fff !important;
+  .app-container, .dark-mode, .light-mode, .app-container.dark, .app-container.light {
+    background: white !important;
     padding: 0 !important;
+    margin: 0 !important;
     color: #111 !important;
+    min-height: auto !important;
   }
 
-  .header { display: none !important; }
+  /* 2. Cacher l'UI web */
+  .header, .footer, .btn-download, .btn-theme, .availability-badge::before {
+    display: none !important;
+  }
 
+  /* 3. Layout Print : On élargit la sidebar */
   .main-wrapper {
-    padding-top: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
     max-width: 100% !important;
   }
 
   .grid-container {
     display: grid !important;
-    grid-template-columns: 200px 1fr !important;
-    gap: 1.25rem !important;
+    /* 260px est le sweet spot pour que tes tags et contacts ne s'empilent pas */
+    grid-template-columns: 260px 1fr !important; 
+    gap: 1.5cm !important;
     align-items: start;
   }
 
-  /* Sidebar */
-  .sidebar,
-  .dark .sidebar,
-  .light .sidebar {
-    position: relative !important;
-    top: auto !important;
-    background: #f8f8f8 !important;
-    border: 1px solid #e0e0e0 !important;
-    color: #111 !important;
-    padding: 1.25rem !important;
+  /* 4. Sidebar Print */
+  .sidebar {
+    background: #fdfdfd !important; /* Très léger gris pour structure */
+    border: none !important;
+    border-right: 1px solid #eee !important;
+    padding: 0 1cm 0 0 !important; /* On utilise du padding interne */
+    height: 100%;
   }
 
-  .sidebar-name,
-  .dark .sidebar-name   { color: #111 !important; }
-  .sidebar-subtitle,
-  .dark .sidebar-subtitle { color: #555 !important; }
-  .section-label,
-  .dark .section-label  { color: #888 !important; }
-  .contact-item,
-  .dark .contact-item   { color: #444 !important; }
-  .language-name,
-  .dark .language-name  { color: #111 !important; }
-  .language-level,
-  .dark .language-level { color: #555 !important; }
+  .avatar {
+    width: 80px !important;
+    height: 80px !important;
+    margin-bottom: 10px !important;
+  }
 
-  .skill-tag,
-  .dark .skill-tag {
-    color: #444 !important;
-    border-color: #ccc !important;
+  .sidebar-name { font-size: 1.4rem !important; margin-top: 10px !important; }
+  .sidebar-subtitle { font-size: 0.9rem !important; margin-bottom: 1.5cm !important; white-space: pre-wrap !important; }
+
+  .skills-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 4pt !important;
+  }
+
+  .skill-tag {
+    font-size: 8pt !important;
+    padding: 2pt 5pt !important;
+    border: 1px solid #ccc !important;
+    background: white !important;
+  }
+
+  /* 5. Corps du CV */
+  .content-section {
+    padding: 0 !important;
+    margin-bottom: 1.2cm !important;
+    border: none !important;
     background: transparent !important;
   }
 
-  .availability-badge { color: #1a9e6e !important; }
-  .availability-badge::before { background: #1a9e6e !important; }
-
-  /* Sections */
-  .content-section,
-  .dark .content-section,
-  .light .content-section {
-    background: #fff !important;
-    border: 1px solid #e8e8e8 !important;
-    color: #111 !important;
-    break-inside: avoid;
-    padding: 1.25rem !important;
+  .section-title {
+    font-size: 11pt !important;
+    margin-bottom: 0.8cm !important;
+    color: #000 !important;
+    border-bottom: 1.5pt solid #7b61ff !important; /* Ligne d'accentuation */
   }
 
-  .section-title,
-  .dark .section-title  { color: #111 !important; border-bottom-color: #ddd !important; }
-  .section-text,
-  .dark .section-text   { color: #444 !important; }
-
-  /* Timeline */
-  .timeline,
-  .dark .timeline       { border-left-color: #ddd !important; }
-  .timeline-dot         { background: #7b61ff !important; box-shadow: 0 0 0 3px #fff !important; }
-  .timeline-badge       { color: #7b61ff !important; }
-  .timeline-title       { color: #111 !important; }
-  .timeline-subtitle,
-  .dark .timeline-subtitle { color: #777 !important; }
-  .timeline-description,
-  .timeline-list,
-  .dark .timeline-description,
-  .dark .timeline-list  { color: #444 !important; }
-  .timeline-list li::before { color: #aaa !important; }
-
-  /* Références */
-  .reference-card,
-  .dark .reference-card {
-    background: #f8f8f8 !important;
-    border: 1px solid #e0e0e0 !important;
-    border-left: 2px solid #7b61ff !important;
+  /* Timeline & Spacing */
+  .timeline {
+    border-left: 1pt solid #ddd !important;
+    margin-bottom: 0.8cm !important;
   }
-  .reference-name,
-  .dark .reference-name { color: #111 !important; }
-  .reference-company,
-  .reference-info,
-  .dark .reference-company,
-  .dark .reference-info { color: #555 !important; }
 
-  /* Photo avion — réduite en print */
-  .avion-photo-wrapper  { width: 100px !important; }
-  .avion-photo          { height: 140px !important; filter: none !important; }
+  .timeline-badge { font-size: 8pt !important; margin-bottom: 2pt !important; }
+  .timeline-title { font-size: 10pt !important; }
+  .timeline-list li { margin-bottom: 2pt !important; }
 
-  /* Footer */
-  .footer,
-  .dark .footer         { border-top-color: #e0e0e0 !important; }
-  .footer-text,
-  .dark .footer-text    { color: #999 !important; }
+  /* 6. Éviter les coupures d'éléments entre deux pages */
+  .content-section, .timeline, .reference-card, .service-card {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 
-  /* Liens */
-  .project-link,
-  .dark .project-link   { color: #7b61ff !important; }
+  /* Services Grid (2 colonnes propres en print) */
+  .services-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10pt !important;
+  }
 
-  .btn-download, .btn-theme { display: none !important; }
+  .service-card {
+    border: 1px solid #eee !important;
+    padding: 8pt !important;
+  }
+
+  .service-icon { width: 18px !important; height: 18px !important; }
+
+  /* Photo Avion */
+  .avion-photo-wrapper { width: 120px !important; }
+  .avion-photo { height: 160px !important; border-radius: 4px !important; }
 }
