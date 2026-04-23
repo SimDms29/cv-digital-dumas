@@ -5,71 +5,73 @@ import './App.css';
 const content = {
   fr: {
     title: "Simon Dumas",
-    subtitle: "Développeur Full Stack, \nMaster Ingénierie du Logiciel",
+    subtitle: "Data Engineer Junior \n Développeur Python Full Stack",
     download: "Télécharger PDF",
-    status: "Disponible",
+    status: "Disponible pour missions",
     contact: "Contact",
-    license: "🚗 Permis B",
-    skills: "Compétences",
+    license: "Permis B",
+    skills: "Expertise Technique",
     languages: "Langues",
     langItems: [
       { flag: "🇫🇷", name: "Français", level: "Langue maternelle" },
-      { flag: "🇬🇧", name: "Anglais", level: "TOEIC 965 pts, Mai 2025\nFCL 055 VFR Niveau 5" }
+      { flag: "🇬🇧", name: "Anglais", level: "TOEIC 965 pts (Mai 2025)\nFCL 055 VFR Niveau 5" }
     ],
     sections: {
       profil: {
         title: "Profil",
-        text: "Ce qui me motive dans le code, c'est de créer de la valeur concrète. En parallèle de mes études, j'ai lancé WingFuel, un SaaS de gestion carburant pour aéroclubs. Passionné par l'aviation, j'ai développé une approche rigoureuse et une capacité à gérer le stress, des qualités que j'applique dans mes projets tech et mes ambitions entrepreneuriales. Disponible en freelance, remote de préférence, ouvert aux opportunités en France et à l'international."
+        text: "Expert en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL critiques et le traitement de standards complexes (AIXM). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
       },
       services: {
         title: "Services Freelance",
-        intro: "En complément de mon parcours académique et de mes projets personnels comme WingFuel, je propose mes services en freelance pour transformer vos besoins métiers en solutions numériques robustes.",
+        intro: "J'interviens sur la modernisation de vos flux de données et la création d'applications métier à forte valeur ajoutée.",
         cards: [
-          { title: "Développement Web & SaaS", text: "Conception d'applications full-stack modernes avec React, Node.js ou Python. De l'idée à la mise en production." },
-          { title: "Architecture de Données", text: "Optimisation de bases de données, normalisation SQL et traitement de flux complexes (AIXM/XML)." },
-          { title: "Déploiement", text: "Configuration de serveurs (VPS), conteneurisation Docker et mise en place de pipelines de déploiement fiables." },
-          { title: "Maintenance & Évolutions", text: "Forfaits de maintenance personnalisés : correctifs de sécurité et ajout de fonctionnalités." }
+          { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API) et tuning de bases de données." },
+          { title: "Développement SaaS & API", text: "Conception d'applications full-stack avec FastAPI (Python) et React. Architecture robuste et sécurisée." },
+          { title: "Solutions Temps Réel", text: "Dashboards interactifs et outils de monitoring avec mise à jour instantanée via WebSockets." },
+          { title: "DevOps & Infrastructure", text: "Déploiement sur VPS, gestion de serveurs Linux et conteneurisation Docker" }
         ]
       },
       experience: {
         title: "Expérience Professionnelle",
         items: [
           {
-            date: "Avril 2026 - Aujourd'hui",
-            job: "Stagiaire Data Engineer",
+            date: "Avril 2026 - Présent",
+            job: "Data Engineer (Mission DGAC)",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
-              "Modernisation de l'architecture : Transition d'un flux ETL monolithique vers une architecture ELT agile",
-              "Ingestion de flux complexes : Développement de pipelines Python pour le chargement de données XML (AIXM) brutes en Landing Zone (PostgreSQL JSONB)",
-              "Modélisation dbt : Conception de modèles SQL modulaires pour le nettoyage, la résolution de FK et la création de Data Marts",
-              "Qualité & Performance : Implémentation de tests dbt automatisés et optimisation des performances via le moteur SQL natif",
-              "Technologies : dbt, PostgreSQL (JSONB), Python, AIXM/XML, SQL"
+              "Optimisation de l'ETL : Refonte complète et industrialisation d'un flux monolithique pour le traitement de données aéronautiques",
+              "Performance Data : Gain de performance majeur via le tuning de requêtes SQL complexes et l'optimisation de scripts Python",
+              "Ingestion de flux critiques : Gestion de pipelines haute disponibilité pour le chargement de données AIXM (XML) vers PostgreSQL",
+              "Qualité & Fiabilité : Mise en place d'un framework de tests de cohérence et de validation de données automatisée",
+              "Infrastructure : Exploitation et configuration de ressources serveur dédiées pour le traitement de données à grande échelle"
             ]
           },
           {
             date: "Avril - Juin 2025",
-            job: "Stagiaire Développement Informatique",
+            job: "Développeur Full Stack (Mission DGAC)",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
-              "Développement full stack d'un outil web pour la gestion des zones militaires",
-              "Collaboration multi-sites (Brest, Rennes, Nantes) pour la sécurité des données",
-              "Technologies : Python, WebSockets, MySQL, JS"
+              "Conception d'une application de monitoring temps réel pour la gestion des zones militaires",
+              "Flux de données Live : Implémentation de WebSockets pour la synchronisation instantanée des données d'exploitation",
+              "Digitalisation métier : Remplacement d'un processus critique manuel par une solution numérique centralisée",
+              "Technologies : Python, WebSockets, MySQL, JavaScript"
             ]
           }
         ]
       },
       projets: {
-        title: "Projets",
+        title: "Projets & SaaS",
         items: [
           {
-            date: "2025 - Aujourd'hui",
-            title: "WingFuel — wingfuel.fr",
-            subtitle: "Projet Personnel · SaaS",
+            date: "2025 - Présent",
+            title: "WingFuel — Gestion Logistique SaaS",
+            subtitle: "Fondateur & Développeur · wingfuel.fr",
+            url: "https://wingfuel.fr",
             tasks: [
-              "SaaS de gestion carburant pour aéroclubs : remplace les feuilles Excel",
-              "Saisie par QR code, suivi de stock, exports comptables et dossier TICPE Douanes",
-              "Déployé en production sur VPS, utilisé par le Quiberon Air Club",
-              "Technologies : React, Node.js, Docker, VPS"
+              "Architecture Multi-tenant : Développement d'un SaaS complet de gestion carburant (Aviation Générale)",
+              "Algorithmique métier : Moteur de calcul de stock et de valorisation financière (PMP).",
+              "Autonomie technique : Gestion totale du cycle de vie, du développement au déploiement en production sur VPS",
+              "Usage réel : Solution adoptée et utilisée quotidiennement par des pilotes d'aeroclub."
             ]
           }
         ]
@@ -77,49 +79,49 @@ const content = {
       formation: {
         title: "Formation",
         items: [
-          { date: "2025 - 2027", title: "Master Informatique", school: "UBO - Brest", desc: "Ingénierie du logiciel" },
-          { date: "2022 - 2025", title: "Licence en Informatique", school: "UBO - Brest", desc: "Fondements et applications" },
+          { date: "2025 - 2027", title: "Master Informatique", school: "UBO - Brest", desc: "Ingénierie du Logiciel" },
+          { date: "2022 - 2025", title: "Licence en Informatique", school: "UBO - Brest", desc: "Fondements, algorithmique et bases de données" },
           { date: "2022", title: "Baccalauréat Général", school: "Lycée de l'Iroise - Brest", desc: "Spécialités Mathématiques et Physique, Mention Bien." }
         ]
       },
       activites: {
-        title: "Activités Extracurriculaires",
+        title: "Activités & Engagement",
         ppl: {
           date: "2023",
           title: "Licence de Pilote Privé (PPL)",
           school: "Aéroclub Brest Finistère",
-          desc: "140+ heures de vol. Qualifications : EFIS, Pas Variable, TW. FCL 055 (Anglais radio)."
+          desc: "140+ heures de vol. Qualifications : EFIS, Pas Variable, Train Classique. FCL 055 (Anglais radio)."
         }
       }
     },
-    footer: "© 2026 Simon Dumas - Tous droits réservés"
+    footer: "© 2026 Simon Dumas - Expert Data & Software"
   },
   en: {
     title: "Simon Dumas",
-    subtitle: "Software Engineer\nMaster's in Software Engineering",
+    subtitle: "Data Engineer & Full Stack Python Developer",
     download: "Download PDF",
-    status: "Available",
+    status: "Available for projects",
     contact: "Contact",
-    license: "🚗 Full Driver's License",
-    skills: "Skills",
+    license: "Driving License",
+    skills: "Technical Expertise",
     languages: "Languages",
     langItems: [
       { flag: "🇫🇷", name: "French", level: "Native speaker" },
-      { flag: "🇬🇧", name: "English", level: "TOEIC 965 pts, May 2025\nFCL 055 VFR Level 5 (ICAO)" }
+      { flag: "🇬🇧", name: "English", level: "TOEIC 965 pts (May 2025)\nFCL 055 VFR Level 5 (ICAO)" }
     ],
     sections: {
       profil: {
         title: "Profile",
-        text: "I am driven by building tangible value through code. Alongside my studies, I launched WingFuel, a fuel management SaaS for flying clubs. My passion for aviation has instilled in me a rigorous approach and the ability to perform under pressure—qualities I apply to my tech projects and entrepreneurial goals. Available for freelance, preferably remote, open to opportunities in France and worldwide."
+        text: "Expert in data engineering and SaaS development. My experience at the French DGAC focuses on optimizing critical ETL pipelines and processing complex standards (AIXM). Driven by technical efficiency, I transform heavy business logic into fluid, high-performance, and scalable architectures."
       },
       services: {
         title: "Freelance Services",
-        intro: "In addition to my academic background and personal projects like WingFuel, I offer freelance services to transform business needs into robust digital solutions.",
+        intro: "I help businesses modernize their data flows and build high-value custom software solutions.",
         cards: [
-          { title: "Web & SaaS Development", text: "Designing modern full-stack applications with React, Node.js, or Python. From concept to production." },
-          { title: "Data Architecture", text: "Database optimization, SQL normalization, and complex data flow processing (AIXM/XML)." },
-          { title: "Deployment ", text: "Server configuration (VPS), Docker containerization, and reliable deployment pipelines." },
-          { title: "Maintenance & Support", text: "Custom maintenance packages: security patches, technical updates, and feature additions." }
+          { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API) and database tuning." },
+          { title: "SaaS & API Dev", text: "Full-stack application design using FastAPI (Python) and React. Focused on performance and security." },
+          { title: "Real-time Solutions", text: "Interactive monitoring dashboards with instant data updates via WebSockets." },
+          { title: "DevOps & Infra", text: "VPS management, Linux server configuration and Docker containerization" }
         ]
       },
       experience: {
@@ -127,40 +129,42 @@ const content = {
         items: [
           {
             date: "April 2026 - Present",
-            job: "Data Engineer Intern",
-            company: "CRNA-Ouest, DGAC (French ATC) - Brest",
+            job: "Data Engineer (DGAC Mission)",
+            company: "CRNA-Ouest, French ATC - Brest",
             tasks: [
-              "Architecture Modernization: Transitioning from a monolithic ETL flow to an agile ELT architecture",
-              "Complex Data Ingestion: Developing Python pipelines for raw XML (AIXM) data loading into a PostgreSQL Landing Zone (JSONB)",
-              "dbt Modeling: Designing modular SQL models for data cleaning, FK resolution, and Data Mart creation",
-              "Quality & Performance: Implementing automated dbt tests and optimizing performance using the native SQL engine",
-              "Technologies: dbt, PostgreSQL (JSONB), Python, AIXM/XML, SQL"
+              "ETL Optimization: Complete overhaul and industrialization of a monolithic flow for aeronautical data",
+              "Data Performance: Significant performance gains through complex SQL tuning and Python script optimization",
+              "Critical Flow Ingestion: Managing high-availability pipelines for AIXM (XML) ingestion into PostgreSQL",
+              "Quality & Reliability: Implementing an automated data validation and consistency testing framework",
+              "Infrastructure: Managing and configuring dedicated server resources for large-scale data processing"
             ]
           },
           {
             date: "April - June 2025",
-            job: "Software Development Intern",
-            company: "CRNA-Ouest, DGAC - Brest",
+            job: "Full Stack Developer (DGAC Mission)",
+            company: "CRNA-Ouest, French ATC - Brest",
             tasks: [
-              "Developed a web application for managing military airspace data",
-              "Collaborated with IT teams across Brest, Rennes, and Nantes for data security",
-              "Technologies: Python, WebSockets, MySQL, JS"
+              "Developed a real-time monitoring application for military airspace data",
+              "Live Data Flows: Implemented WebSockets for instant synchronization of operational data",
+              "Digital Impact: Replaced a critical manual process with a centralized digital solution",
+              "Stack: Python, WebSockets, MySQL, JavaScript"
             ]
           }
         ]
       },
       projets: {
-        title: "Projects",
+        title: "Projects & SaaS",
         items: [
           {
             date: "2025 - Present",
-            title: "WingFuel — wingfuel.fr",
-            subtitle: "Personal Project · SaaS",
+            title: "WingFuel — Logistics SaaS",
+            subtitle: "Founder & Lead Developer · wingfuel.fr",
+            url: "https://wingfuel.fr",
             tasks: [
-              "Fuel management SaaS for flying clubs: digitizing manual logs",
-              "Pilot entry via QR code, stock tracking, accounting exports and tax compliance",
-              "Live in production on VPS, currently used by Quiberon Air Club",
-              "Technologies: React, Node.js, Docker, VPS Deployment"
+              "Multi-tenant Architecture: Full-stack development of a fuel management SaaS for general aviation",
+              "Business Logic: Implementation of stock tracking and Weighted Average Cost algorithms",
+              "Full Ownership: Managing the entire lifecycle from development to production deployment on VPS",
+              "Real-world Impact: Currently live and used daily by air clubs pilots."
             ]
           }
         ]
@@ -168,28 +172,29 @@ const content = {
       formation: {
         title: "Education",
         items: [
-          { date: "2025 - 2027", title: "Master’s in Computer Science", school: "UBO - Brest", desc: "Software Engineering track." },
-          { date: "2022 - 2025", title: "Bachelor’s in Computer Science", school: "UBO - Brest", desc: "Focus on programming, algorithms, and practical applications." },
-          { date: "2022", title: "High School Diploma", school: "Lycée de l'Iroise - Brest", desc: "Specializing in Math & Physics, graduated with Honors." }
+          { date: "2025 - 2027", title: "Master's in Computer Science", school: "UBO - Brest", desc: "Software Engineering track" },
+          { date: "2022 - 2025", title: "Bachelor's in Computer Science", school: "UBO - Brest", desc: "Algorithms and database foundations" },
+          { date: "2022", title: "High School Diploma", school: "Lycée de l'Iroise - Brest", desc: "Math & Physics major, graduated with Honors." }
         ]
       },
       activites: {
-        title: "Extracurricular Activities",
+        title: "Skills & Interests",
         ppl: {
           date: "2023",
           title: "Private Pilot License (PPL)",
           school: "Brest Finistère Flying Club",
-          desc: "140+ flight hours. Ratings: EFIS, Variable Pitch, Tailwheel. FCL 055 (English Radio Proficiency)."
+          desc: "140+ flight hours. Ratings: EFIS, Variable Pitch, Tailwheel. FCL 055 (English Proficiency)."
         }
       }
     },
-    footer: "© 2026 Simon Dumas - All rights reserved"
+    footer: "© 2026 Simon Dumas - Data & Software Expert"
   }
 };
 
 const skillsList = [
-  'Software Engineering', 'Java', 'Python', 'Git', 'HTML/CSS/JS',
-  'SQL', 'WebSockets', 'MySQL', 'Docker', 'VPS / Prod', 'React'
+  'Data Engineering', 'Python', 'FastApi', 'SQL Optimization', 'PostgreSQL', 
+  'ETL Industrialization', 'Architecture SaaS', 'React', 'TypeScript', 
+  'WebSockets', 'Docker', 'Linux / VPS Management' 
 ];
 
 export default function CVApp() {
@@ -222,34 +227,33 @@ export default function CVApp() {
   return (
     <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
       <header className="header">
-  <div className="header-content">
-    <h1 className="header-title">{t.title}</h1>
-    <div className="header-actions">
-      <button onClick={() => window.print()} className="btn-download">
-        <Download size={18} />
-        <span className="btn-text">{t.download}</span>
-      </button>
-      
-      {/* Bouton de Langue avec Drapeaux */}
-      <button 
-        onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} 
-        className="btn-theme" 
-        title={lang === 'fr' ? "Switch to English" : "Passer en Français"}
-      >
-        <span style={{ fontSize: '20px', lineHeight: '1' }}>
-          {lang === 'fr' ? '🇫🇷' : '🇬🇧'}
-        </span>
-        <span style={{ marginLeft: '8px', fontSize: '14px', fontWeight: 'bold' }}>
-          {lang.toUpperCase()}
-        </span>
-      </button>
+        <div className="header-content">
+          <h1 className="header-title">{t.title}</h1>
+          <div className="header-actions">
+            <button onClick={() => window.print()} className="btn-download">
+              <Download size={18} />
+              <span className="btn-text">{t.download}</span>
+            </button>
+            
+            <button 
+              onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} 
+              className="btn-theme" 
+              title={lang === 'fr' ? "Switch to English" : "Passer en Français"}
+            >
+              <span style={{ fontSize: '20px', lineHeight: '1' }}>
+                {lang === 'fr' ? '🇫🇷' : '🇬🇧'}
+              </span>
+              <span style={{ marginLeft: '8px', fontSize: '14px', fontWeight: 'bold' }}>
+                {lang.toUpperCase()}
+              </span>
+            </button>
 
-      <button onClick={() => setDarkMode(!darkMode)} className="btn-theme">
-        {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-      </button>
-    </div>
-  </div>
-</header>
+            <button onClick={() => setDarkMode(!darkMode)} className="btn-theme">
+              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+          </div>
+        </div>
+      </header>
 
       <div className="main-wrapper">
         <div className="grid-container">
@@ -262,7 +266,7 @@ export default function CVApp() {
             </div>
 
             <h2 className="sidebar-name">{t.title}</h2>
-            <p className="sidebar-subtitle">{t.subtitle}</p>
+            <p className="sidebar-subtitle" style={{ whiteSpace: 'pre-line' }}>{t.subtitle}</p>
 
             <div className="sidebar-section">
               <h3 className="section-label">{t.contact}</h3>
@@ -276,7 +280,7 @@ export default function CVApp() {
               </a>
               <div className="contact-item">
                 <MapPin size={18} className="contact-icon" />
-                <span className="contact-text">22 bis rue Lacordaire<br />29200 Brest</span>
+                <span className="contact-text">Brest, France</span>
               </div>
               <div className="contact-item">
                 <span className="contact-text">{t.license}</span>
@@ -316,12 +320,12 @@ export default function CVApp() {
 
             <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
               <h2 className="section-title">{t.sections.services.title}</h2>
-              <p className="section-text">{t.sections.services.intro}</p>
+              <p className="section-text" style={{ marginBottom: '1.5rem' }}>{t.sections.services.intro}</p>
               <div className="services-grid">
                 {t.sections.services.cards.map((card, i) => (
                   <div key={i} className="service-card">
-                    {i === 0 && <Code className="service-icon" size={24} />}
-                    {i === 1 && <Database className="service-icon" size={24} />}
+                    {i === 0 && <Database className="service-icon" size={24} />}
+                    {i === 1 && <Code className="service-icon" size={24} />}
                     {i === 2 && <Rocket className="service-icon" size={24} />}
                     {i === 3 && <Wrench className="service-icon" size={24} />}
                     <h3 className="service-title">{card.title}</h3>
@@ -358,7 +362,27 @@ export default function CVApp() {
                     <div className="timeline-dot accent" />
                     <div className="timeline-content">
                       <span className="timeline-badge accent">{proj.date}</span>
-                      <h3 className="timeline-title">{proj.title}</h3>
+                      <h3 className="timeline-title">
+                        {proj.url ? (
+                          <a
+                            href={proj.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              color: 'inherit',
+                              textDecoration: 'none',
+                              borderBottom: '1px solid currentColor',
+                              paddingBottom: '1px',
+                              opacity: 0.85,
+                              transition: 'opacity 0.2s ease',
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.opacity = '1'}
+                            onMouseLeave={e => e.currentTarget.style.opacity = '0.85'}
+                          >
+                            {proj.title}
+                          </a>
+                        ) : proj.title}
+                      </h3>
                       <p className="timeline-subtitle">{proj.subtitle}</p>
                       <ul className="timeline-list">
                         {proj.tasks.map((task, j) => <li key={j}>{task}</li>)}
@@ -366,7 +390,6 @@ export default function CVApp() {
                     </div>
                   </div>
                 ))}
-                {/* On garde les projets UBO simplifiés ou on les ajoute au dictionnaire si besoin */}
               </div>
             </section>
 
