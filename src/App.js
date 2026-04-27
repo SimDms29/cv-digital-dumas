@@ -19,7 +19,7 @@ const content = {
     sections: {
       profil: {
         title: "Profil",
-        text: "Expert en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL critiques et le traitement de standards complexes (AIXM). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
+        text: "Junior en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL critiques et le traitement de standards complexes (XML / SQL). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
       },
       services: {
         title: "Services Freelance",
@@ -94,7 +94,7 @@ const content = {
         }
       }
     },
-    footer: "© 2026 Simon Dumas - Expert Data & Software"
+    footer: "© 2026 Simon Dumas - Junior Data & Software"
   },
   en: {
     title: "Simon Dumas",
@@ -112,7 +112,7 @@ const content = {
     sections: {
       profil: {
         title: "Profile",
-        text: "Expert in data engineering and SaaS development. My experience at the French DGAC focuses on optimizing critical ETL pipelines and processing complex standards (AIXM). Driven by technical efficiency, I transform heavy business logic into fluid, high-performance, and scalable architectures."
+        text: "Junior in data engineering and SaaS development. My experience at the French DGAC focuses on optimizing critical ETL pipelines and processing complex standards (AIXM). Driven by technical efficiency, I transform heavy business logic into fluid, high-performance, and scalable architectures."
       },
       services: {
         title: "Freelance Services",
@@ -187,7 +187,7 @@ const content = {
         }
       }
     },
-    footer: "© 2026 Simon Dumas - Data & Software Expert"
+    footer: "© 2026 Simon Dumas - Data & Software Junior"
   }
 };
 
