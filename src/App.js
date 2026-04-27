@@ -36,7 +36,7 @@ const content = {
         items: [
           {
             date: "Avril 2026 - Présent",
-            job: "Data Engineer (Mission DGAC)",
+            job: "Data Engineer (Stage DGAC)",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
               "Optimisation de l'ETL : Refonte complète et industrialisation d'un flux monolithique pour le traitement de données aéronautiques",
@@ -48,7 +48,7 @@ const content = {
           },
           {
             date: "Avril - Juin 2025",
-            job: "Développeur Full Stack (Mission DGAC)",
+            job: "Développeur Full Stack (Stage DGAC)",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
               "Conception d'une application de monitoring temps réel pour la gestion des zones militaires",
