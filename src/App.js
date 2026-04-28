@@ -1,17 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Wrench } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Wrench, ExternalLink } from 'lucide-react';
 import './App.css';
+
+function useTypewriter(text, speed = 38) {
+  const [displayed, setDisplayed] = useState('');
+  useEffect(() => {
+    setDisplayed('');
+    let i = 0;
+    const id = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) clearInterval(id);
+    }, speed);
+    return () => clearInterval(id);
+  }, [text]);
+  return displayed;
+}
+
+function CountUp({ to, suffix = '' }) {
+  const [val, setVal] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+  useEffect(() => {
+    started.current = false;
+    setVal(0);
+  }, [to]);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !started.current) {
+        started.current = true;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - start) / 1200, 1);
+          setVal(Math.round((1 - Math.pow(1 - p, 3)) * to));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+    }, { threshold: 0.5 });
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [to]);
+  return <span ref={ref}>{val}{suffix}</span>;
+}
+
+function Reveal({ children, delay = 0, className = '' }) {
+  const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) { setVisible(true); obs.disconnect(); }
+    }, { threshold: 0.08 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className={`reveal${visible ? ' in-view' : ''}${className ? ' ' + className : ''}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
 
 const content = {
   fr: {
     title: "Simon Dumas",
-    subtitle: "Data Engineer Junior \n Développeur Python Full Stack",
+    subtitle: "Data Engineer Junior\nDéveloppeur Python Full Stack",
     download: "Télécharger PDF",
     status: "Disponible pour missions",
     contact: "Contact",
     license: "Permis B",
     skills: "Expertise Technique",
     languages: "Langues",
+    statLabels: { flight: 'h de vol', internships: 'stages DGAC' },
     langItems: [
       { flag: "🇫🇷", name: "Français", level: "Langue maternelle" },
       { flag: "🇬🇧", name: "Anglais", level: "TOEIC 965 pts (Mai 2025)\nFCL 055 VFR Niveau 5" }
@@ -19,13 +87,13 @@ const content = {
     sections: {
       profil: {
         title: "Profil",
-        text: "Junior en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL critiques et le traitement de standards complexes (XML / SQL). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
+        text: "Junior en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL et le traitement de données complexes (XML / SQL). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
       },
       services: {
         title: "Services Freelance",
         intro: "J'interviens sur la modernisation de vos flux de données et la création d'applications métier à forte valeur ajoutée.",
         cards: [
-          { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API) et tuning de bases de données." },
+          { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API)." },
           { title: "Développement SaaS & API", text: "Conception d'applications full-stack avec FastAPI (Python) et React. Architecture robuste et sécurisée." },
           { title: "Solutions Temps Réel", text: "Dashboards interactifs et outils de monitoring avec mise à jour instantanée via WebSockets." },
           { title: "DevOps & Infrastructure", text: "Déploiement sur VPS, gestion de serveurs Linux et conteneurisation Docker" }
@@ -41,8 +109,7 @@ const content = {
             tasks: [
               "Optimisation de l'ETL : Refonte complète et industrialisation d'un flux monolithique pour le traitement de données aéronautiques",
               "Performance Data : Gain de performance majeur via le tuning de requêtes SQL complexes et l'optimisation de scripts Python",
-              "Ingestion de flux critiques : Gestion de pipelines haute disponibilité pour le chargement de données AIXM (XML) vers PostgreSQL",
-              "Qualité & Fiabilité : Mise en place d'un framework de tests de cohérence et de validation de données automatisée",
+              "Qualité & Fiabilité : Mise en place d'un ensemble de tests de cohérence et de validation de données automatisée",
               "Infrastructure : Exploitation et configuration de ressources serveur dédiées pour le traitement de données à grande échelle"
             ]
           },
@@ -60,21 +127,44 @@ const content = {
         ]
       },
       projets: {
-        title: "Projets & SaaS",
+        title: "Projets",
         items: [
           {
-            date: "2025 - Présent",
+            badgeLabel: "SaaS · Production",
+            badgeType: "production",
             title: "WingFuel — Gestion Logistique SaaS",
             subtitle: "Fondateur & Développeur · wingfuel.fr",
-            url: "https://wingfuel.fr",
-            tasks: [
-              "Architecture Multi-tenant : Développement d'un SaaS complet de gestion carburant (Aviation Générale)",
-              "Algorithmique métier : Moteur de calcul de stock et de valorisation financière (PMP).",
-              "Autonomie technique : Gestion totale du cycle de vie, du développement au déploiement en production sur VPS",
-              "Usage réel : Solution adoptée et utilisée quotidiennement par des pilotes d'aeroclub."
-            ]
+            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), déploiement VPS — utilisé quotidiennement par des pilotes d'aéroclub.",
+            stack: ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "VPS"],
+            link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
+          },
+          {
+            badgeLabel: "Projet Personnel · En production",
+            badgeType: "personal",
+            title: "AeroWatch",
+            subtitle: "Veille Recrutement PNT · aerowatch.wingfuel.fr",
+            desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 7 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
+            stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
+            link: { url: "https://aerowatch.wingfuel.fr", label: "aerowatch.wingfuel.fr →" }
           }
-        ]
+        ],
+        secondary: [
+          {
+            badgeLabel: "Académique",
+            badgeType: "academic",
+            title: "UBHome",
+            subtitle: "Plateforme SaaS Étudiante · M1, équipe de 3",
+            desc: "Hub étudiant : forum, messagerie, calendrier interactif CRUD, profils et dashboards par rôle. Auth sociale via django-allauth.",
+            stack: ["Django 5", "PostgreSQL", "Tailwind CSS", "JavaScript"],
+            link: { url: "https://github.com/SimDms29/UBHome", label: "GitHub →" }
+          }
+        ],
+        mention: {
+          label: "Également",
+          title: "java-idl-network-architecture",
+          desc: "Architecture réseau Java · Design Patterns GoF : Visitor, Factory, Facade, Observer · JUnit",
+          url: "https://github.com/SimDms29/java-idl-network-architecture"
+        }
       },
       formation: {
         title: "Formation",
@@ -105,6 +195,7 @@ const content = {
     license: "Driving License",
     skills: "Technical Expertise",
     languages: "Languages",
+    statLabels: { flight: 'flight hrs', internships: 'DGAC terms' },
     langItems: [
       { flag: "🇫🇷", name: "French", level: "Native speaker" },
       { flag: "🇬🇧", name: "English", level: "TOEIC 965 pts (May 2025)\nFCL 055 VFR Level 5 (ICAO)" }
@@ -118,7 +209,7 @@ const content = {
         title: "Freelance Services",
         intro: "I help businesses modernize their data flows and build high-value custom software solutions.",
         cards: [
-          { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API) and database tuning." },
+          { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API)." },
           { title: "SaaS & API Dev", text: "Full-stack application design using FastAPI (Python) and React. Focused on performance and security." },
           { title: "Real-time Solutions", text: "Interactive monitoring dashboards with instant data updates via WebSockets." },
           { title: "DevOps & Infra", text: "VPS management, Linux server configuration and Docker containerization" }
@@ -134,7 +225,6 @@ const content = {
             tasks: [
               "ETL Optimization: Complete overhaul and industrialization of a monolithic flow for aeronautical data",
               "Data Performance: Significant performance gains through complex SQL tuning and Python script optimization",
-              "Critical Flow Ingestion: Managing high-availability pipelines for AIXM (XML) ingestion into PostgreSQL",
               "Quality & Reliability: Implementing an automated data validation and consistency testing framework",
               "Infrastructure: Managing and configuring dedicated server resources for large-scale data processing"
             ]
@@ -153,21 +243,44 @@ const content = {
         ]
       },
       projets: {
-        title: "Projects & SaaS",
+        title: "Projects",
         items: [
           {
-            date: "2025 - Present",
-            title: "WingFuel — Logistics SaaS",
+            badgeLabel: "SaaS · Live",
+            badgeType: "production",
+            title: "WingFuel — Aviation Fuel SaaS",
             subtitle: "Founder & Lead Developer · wingfuel.fr",
-            url: "https://wingfuel.fr",
-            tasks: [
-              "Multi-tenant Architecture: Full-stack development of a fuel management SaaS for general aviation",
-              "Business Logic: Implementation of stock tracking and Weighted Average Cost algorithms",
-              "Full Ownership: Managing the entire lifecycle from development to production deployment on VPS",
-              "Real-world Impact: Currently live and used daily by air clubs pilots."
-            ]
+            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, VPS deployment — used daily by air club pilots.",
+            stack: ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "VPS"],
+            link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
+          },
+          {
+            badgeLabel: "Personal Project · Coming Soon",
+            badgeType: "personal",
+            title: "AeroWatch",
+            subtitle: "Pilot Job Monitor · aerowatch.wingfuel.fr",
+            desc: "Automated dashboard aggregating pilot job listings from 7 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
+            stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
+            link: { url: "https://github.com/SimDms29/Scanner_Pilot_Job_V2", label: "View on GitHub" }
           }
-        ]
+        ],
+        secondary: [
+          {
+            badgeLabel: "Academic",
+            badgeType: "academic",
+            title: "UBHome",
+            subtitle: "Student SaaS Platform · M1, 3-person team",
+            desc: "Student hub: forum, messaging, interactive calendar (CRUD), profiles and role-based dashboards. Social auth via django-allauth.",
+            stack: ["Django 5", "PostgreSQL", "Tailwind CSS", "JavaScript"],
+            link: { url: "https://github.com/SimDms29/UBHome", label: "GitHub →" }
+          }
+        ],
+        mention: {
+          label: "Also",
+          title: "java-idl-network-architecture",
+          desc: "Java network architecture · GoF Design Patterns: Visitor, Factory, Facade, Observer · JUnit coverage",
+          url: "https://github.com/SimDms29/java-idl-network-architecture"
+        }
       },
       formation: {
         title: "Education",
@@ -192,9 +305,9 @@ const content = {
 };
 
 const skillsList = [
-  'Data Engineering', 'Python', 'FastApi', 'SQL Optimization', 'PostgreSQL', 
-  'ETL Industrialization', 'Architecture SaaS', 'React', 'TypeScript', 
-  'WebSockets', 'Docker', 'Linux / VPS Management' 
+  'Data Engineering', 'Python', 'FastApi', 'SQL Optimization', 'PostgreSQL',
+  'ETL Industrialization', 'Architecture SaaS', 'React', 'TypeScript',
+  'WebSockets', 'Docker', 'Linux / VPS Management'
 ];
 
 export default function CVApp() {
@@ -203,6 +316,7 @@ export default function CVApp() {
   const [activeSection, setActiveSection] = useState('');
 
   const t = content[lang];
+  const typedSubtitle = useTypewriter(t.subtitle, 38);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -226,6 +340,9 @@ export default function CVApp() {
 
   return (
     <div className={`app-container ${darkMode ? 'dark' : 'light'}`}>
+      <div className="ambient-glow ambient-glow--tr" />
+      <div className="ambient-glow ambient-glow--bl" />
+
       <header className="header">
         <div className="header-content">
           <h1 className="header-title">{t.title}</h1>
@@ -234,10 +351,10 @@ export default function CVApp() {
               <Download size={18} />
               <span className="btn-text">{t.download}</span>
             </button>
-            
-            <button 
-              onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')} 
-              className="btn-theme" 
+
+            <button
+              onClick={() => setLang(lang === 'fr' ? 'en' : 'fr')}
+              className="btn-theme"
               title={lang === 'fr' ? "Switch to English" : "Passer en Français"}
             >
               <span style={{ fontSize: '20px', lineHeight: '1' }}>
@@ -258,186 +375,244 @@ export default function CVApp() {
       <div className="main-wrapper">
         <div className="grid-container">
           <aside className="sidebar">
-            <div className="avatar-container">
-              <div className="avatar">
-                <img src="/avatar.JPG" alt={t.title} className="avatar-image" />
+            <Reveal delay={0}>
+              <div className="avatar-container">
+                <div className="avatar">
+                  <img src="/avatar.JPG" alt={t.title} className="avatar-image" />
+                </div>
+                <div className="availability-badge">{t.status}</div>
               </div>
-              <div className="availability-badge">{t.status}</div>
-            </div>
+              <h2 className="sidebar-name">{t.title}</h2>
+              <p className="sidebar-subtitle" style={{ whiteSpace: 'pre-line' }}>
+                {typedSubtitle}<span className="typing-cursor">|</span>
+              </p>
+            </Reveal>
 
-            <h2 className="sidebar-name">{t.title}</h2>
-            <p className="sidebar-subtitle" style={{ whiteSpace: 'pre-line' }}>{t.subtitle}</p>
-
-            <div className="sidebar-section">
-              <h3 className="section-label">{t.contact}</h3>
-              <a href="mailto:dumassimon22@gmail.com" className="contact-item">
-                <Mail size={18} className="contact-icon" />
-                <span className="contact-text">dumassimon22@gmail.com</span>
-              </a>
-              <a href="tel:0769684922" className="contact-item">
-                <Phone size={18} className="contact-icon" />
-                <span className="contact-text">07 69 68 49 22</span>
-              </a>
-              <div className="contact-item">
-                <MapPin size={18} className="contact-icon" />
-                <span className="contact-text">Brest, France</span>
+            <Reveal delay={150}>
+              <div className="sidebar-section">
+                <h3 className="section-label">{t.contact}</h3>
+                <a href="mailto:dumassimon22@gmail.com" className="contact-item">
+                  <Mail size={18} className="contact-icon" />
+                  <span className="contact-text">dumassimon22@gmail.com</span>
+                </a>
+                <a href="tel:0769684922" className="contact-item">
+                  <Phone size={18} className="contact-icon" />
+                  <span className="contact-text">07 69 68 49 22</span>
+                </a>
+                <div className="contact-item">
+                  <MapPin size={18} className="contact-icon" />
+                  <span className="contact-text">Brest, France</span>
+                </div>
+                <div className="contact-item">
+                  <span className="contact-text">{t.license}</span>
+                </div>
               </div>
-              <div className="contact-item">
-                <span className="contact-text">{t.license}</span>
-              </div>
-            </div>
+            </Reveal>
 
-            <div className="sidebar-section">
-              <h3 className="section-label">{t.skills}</h3>
-              <div className="skills-container">
-                {skillsList.map((skill, index) => (
-                  <span key={index} className="skill-tag">{skill}</span>
-                ))}
+            <Reveal delay={250}>
+              <div className="sidebar-section">
+                <h3 className="section-label">{t.skills}</h3>
+                <div className="skills-container">
+                  {skillsList.map((skill, index) => (
+                    <span key={index} className="skill-tag">{skill}</span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
 
-            <div className="sidebar-section">
-              <h3 className="section-label">{t.languages}</h3>
-              <div className="languages-container">
-                {t.langItems.map((item, i) => (
-                  <div key={i} className="language-item">
-                    <div className="language-header">
-                      <span>{item.flag}</span>
-                      <span className="language-name">{item.name}</span>
+            <Reveal delay={350}>
+              <div className="stats-strip">
+                <div className="stat-item">
+                  <span className="stat-value"><CountUp to={140} suffix="+" /></span>
+                  <span className="stat-label">{t.statLabels.flight}</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-value"><CountUp to={965} /></span>
+                  <span className="stat-label">TOEIC</span>
+                </div>
+                <div className="stat-item">
+                  <span className="stat-value"><CountUp to={2} /></span>
+                  <span className="stat-label">{t.statLabels.internships}</span>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={450}>
+              <div className="sidebar-section">
+                <h3 className="section-label">{t.languages}</h3>
+                <div className="languages-container">
+                  {t.langItems.map((item, i) => (
+                    <div key={i} className="language-item">
+                      <div className="language-header">
+                        <span>{item.flag}</span>
+                        <span className="language-name">{item.name}</span>
+                      </div>
+                      <p className="language-level" style={{ whiteSpace: 'pre-line' }}>{item.level}</p>
                     </div>
-                    <p className="language-level" style={{ whiteSpace: 'pre-line' }}>{item.level}</p>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
+            </Reveal>
           </aside>
 
           <main className="main-content">
-            <section id="profil" className={`content-section ${activeSection === 'profil' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.profil.title}</h2>
-              <p className="section-text">{t.sections.profil.text}</p>
-            </section>
+            <Reveal>
+              <section id="profil" className={`content-section ${activeSection === 'profil' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.profil.title}</h2>
+                <p className="section-text">{t.sections.profil.text}</p>
+              </section>
+            </Reveal>
 
-            <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.services.title}</h2>
-              <p className="section-text" style={{ marginBottom: '1.5rem' }}>{t.sections.services.intro}</p>
-              <div className="services-grid">
-                {t.sections.services.cards.map((card, i) => (
-                  <div key={i} className="service-card">
-                    {i === 0 && <Database className="service-icon" size={24} />}
-                    {i === 1 && <Code className="service-icon" size={24} />}
-                    {i === 2 && <Rocket className="service-icon" size={24} />}
-                    {i === 3 && <Wrench className="service-icon" size={24} />}
-                    <h3 className="service-title">{card.title}</h3>
-                    <p className="service-text">{card.text}</p>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <Reveal>
+              <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.services.title}</h2>
+                <p className="section-text" style={{ marginBottom: '1.5rem' }}>{t.sections.services.intro}</p>
+                <div className="services-grid">
+                  {t.sections.services.cards.map((card, i) => (
+                    <Reveal key={i} delay={i * 90} className="service-reveal">
+                      <div className="service-card">
+                        {i === 0 && <Database className="service-icon" size={24} />}
+                        {i === 1 && <Code className="service-icon" size={24} />}
+                        {i === 2 && <Rocket className="service-icon" size={24} />}
+                        {i === 3 && <Wrench className="service-icon" size={24} />}
+                        <h3 className="service-title">{card.title}</h3>
+                        <p className="service-text">{card.text}</p>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
 
-            <section id="experience" className={`content-section ${activeSection === 'experience' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.experience.title}</h2>
-              <div className="timeline-list-container">
-                {t.sections.experience.items.map((exp, i) => (
-                  <div key={i} className="timeline">
-                    <div className={`timeline-dot ${i === 0 ? 'primary' : 'secondary'}`} />
-                    <div className="timeline-content">
-                      <span className="timeline-badge">{exp.date}</span>
-                      <h3 className="timeline-title">{exp.job}</h3>
-                      <p className="timeline-subtitle">{exp.company}</p>
-                      <ul className="timeline-list">
-                        {exp.tasks.map((task, j) => <li key={j}>{task}</li>)}
-                      </ul>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
+            <Reveal>
+              <section id="experience" className={`content-section ${activeSection === 'experience' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.experience.title}</h2>
+                <div className="timeline-list-container">
+                  {t.sections.experience.items.map((exp, i) => (
+                    <Reveal key={i} delay={i * 120}>
+                      <div className="timeline">
+                        <div className={`timeline-dot ${i === 0 ? 'primary' : 'secondary'}`} />
+                        <div className="timeline-content">
+                          <span className="timeline-badge">{exp.date}</span>
+                          <h3 className="timeline-title">{exp.job}</h3>
+                          <p className="timeline-subtitle">{exp.company}</p>
+                          <ul className="timeline-list">
+                            {exp.tasks.map((task, j) => <li key={j}>{task}</li>)}
+                          </ul>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
 
-            <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.projets.title}</h2>
-              <div className="timeline-list-container">
+            <Reveal>
+              <section id="projets" className={`content-section ${activeSection === 'projets' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.projets.title}</h2>
+
                 {t.sections.projets.items.map((proj, i) => (
-                  <div key={i} className="timeline">
+                  <Reveal key={i} delay={i * 80}>
+                    <div className={`portfolio-featured${proj.badgeType === 'production' ? ' production' : ''}`}>
+                      <span className={`proj-badge proj-badge--${proj.badgeType}`}>{proj.badgeLabel}</span>
+                      <h3 className="portfolio-featured-title">{proj.title}</h3>
+                      <p className="portfolio-featured-subtitle">{proj.subtitle}</p>
+                      <p className="portfolio-featured-desc">{proj.desc}</p>
+                      <div className="portfolio-stack">
+                        {proj.stack.map((s, j) => <span key={j} className="stack-tag">{s}</span>)}
+                      </div>
+                      <a href={proj.link.url} target="_blank" rel="noopener noreferrer" className="portfolio-link">
+                        <ExternalLink size={14} />
+                        {proj.link.label}
+                      </a>
+                    </div>
+                  </Reveal>
+                ))}
+
+                <div className="portfolio-grid">
+                  {t.sections.projets.secondary.map((proj, i) => (
+                    <Reveal key={i} delay={80} className="portfolio-card-reveal">
+                      <div className="portfolio-card">
+                        <span className={`proj-badge proj-badge--${proj.badgeType}`}>{proj.badgeLabel}</span>
+                        <h3 className="portfolio-card-title">{proj.title}</h3>
+                        <p className="portfolio-card-subtitle">{proj.subtitle}</p>
+                        <p className="portfolio-card-desc">{proj.desc}</p>
+                        <div className="portfolio-stack">
+                          {proj.stack.map((s, j) => <span key={j} className="stack-tag">{s}</span>)}
+                        </div>
+                        <a href={proj.link.url} target="_blank" rel="noopener noreferrer" className="portfolio-card-link">
+                          <ExternalLink size={12} /> {proj.link.label}
+                        </a>
+                      </div>
+                    </Reveal>
+                  ))}
+
+                  <Reveal delay={160}>
+                    <div className="portfolio-mention">
+                      <span className="mention-label">{t.sections.projets.mention.label}</span>
+                      <a href={t.sections.projets.mention.url} target="_blank" rel="noopener noreferrer" className="mention-item">
+                        <span className="mention-title">{t.sections.projets.mention.title}</span>
+                        <span className="mention-desc">{t.sections.projets.mention.desc}</span>
+                      </a>
+                    </div>
+                  </Reveal>
+                </div>
+              </section>
+            </Reveal>
+
+            <Reveal>
+              <section id="formation" className={`content-section ${activeSection === 'formation' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.formation.title}</h2>
+                <div className="timeline-list-container">
+                  {t.sections.formation.items.map((form, i) => (
+                    <Reveal key={i} delay={i * 100}>
+                      <div className="timeline">
+                        <div className="timeline-dot primary" />
+                        <div className="timeline-content">
+                          <span className="timeline-badge">{form.date}</span>
+                          <h3 className="timeline-title">{form.title}</h3>
+                          <p className="timeline-subtitle">{form.school}</p>
+                          <p className="timeline-description">{form.desc}</p>
+                        </div>
+                      </div>
+                    </Reveal>
+                  ))}
+                </div>
+              </section>
+            </Reveal>
+
+            <Reveal>
+              <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
+                <h2 className="section-title">{t.sections.activites.title}</h2>
+                <div className="activites-layout">
+                  <div className="timeline">
                     <div className="timeline-dot accent" />
                     <div className="timeline-content">
-                      <span className="timeline-badge accent">{proj.date}</span>
-                      <h3 className="timeline-title">
-                        {proj.url ? (
-                          <a
-                            href={proj.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            style={{
-                              color: 'inherit',
-                              textDecoration: 'none',
-                              borderBottom: '1px solid currentColor',
-                              paddingBottom: '1px',
-                              opacity: 0.85,
-                              transition: 'opacity 0.2s ease',
-                            }}
-                            onMouseEnter={e => e.currentTarget.style.opacity = '1'}
-                            onMouseLeave={e => e.currentTarget.style.opacity = '0.85'}
-                          >
-                            {proj.title}
-                          </a>
-                        ) : proj.title}
-                      </h3>
-                      <p className="timeline-subtitle">{proj.subtitle}</p>
-                      <ul className="timeline-list">
-                        {proj.tasks.map((task, j) => <li key={j}>{task}</li>)}
-                      </ul>
+                      <span className="timeline-badge accent">{t.sections.activites.ppl.date}</span>
+                      <h3 className="timeline-title">{t.sections.activites.ppl.title}</h3>
+                      <p className="timeline-subtitle">{t.sections.activites.ppl.school}</p>
+                      <p className="timeline-description">{t.sections.activites.ppl.desc}</p>
                     </div>
                   </div>
-                ))}
-              </div>
-            </section>
-
-            <section id="formation" className={`content-section ${activeSection === 'formation' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.formation.title}</h2>
-              <div className="timeline-list-container">
-                {t.sections.formation.items.map((form, i) => (
-                  <div key={i} className="timeline">
-                    <div className="timeline-dot primary" />
-                    <div className="timeline-content">
-                      <span className="timeline-badge">{form.date}</span>
-                      <h3 className="timeline-title">{form.title}</h3>
-                      <p className="timeline-subtitle">{form.school}</p>
-                      <p className="timeline-description">{form.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </section>
-
-            <section id="activites" className={`content-section ${activeSection === 'activites' ? 'active' : ''}`}>
-              <h2 className="section-title">{t.sections.activites.title}</h2>
-              <div className="activites-layout">
-                <div className="timeline">
-                  <div className="timeline-dot accent" />
-                  <div className="timeline-content">
-                    <span className="timeline-badge accent">{t.sections.activites.ppl.date}</span>
-                    <h3 className="timeline-title">{t.sections.activites.ppl.title}</h3>
-                    <p className="timeline-subtitle">{t.sections.activites.ppl.school}</p>
-                    <p className="timeline-description">{t.sections.activites.ppl.desc}</p>
+                  <div className="avion-photo-wrapper">
+                    <img src="/avion.PNG" alt="Flight" className="avion-photo" />
                   </div>
                 </div>
-                <div className="avion-photo-wrapper">
-                  <img src="/avion.PNG" alt="Flight" className="avion-photo" />
-                </div>
-              </div>
-            </section>
+              </section>
+            </Reveal>
 
-            <section className="content-section">
-              <h2 className="section-title">References</h2>
-              <div className="references-grid">
-                <div className="reference-card reference-card--full">
-                  <h3 className="reference-name">Damien Archer</h3>
-                  <p className="reference-company">CRNA Ouest, Pôle DATA</p>
-                  <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
+            <Reveal>
+              <section className="content-section">
+                <h2 className="section-title">References</h2>
+                <div className="references-grid">
+                  <div className="reference-card reference-card--full">
+                    <h3 className="reference-name">Damien Archer</h3>
+                    <p className="reference-company">CRNA Ouest, Pôle DATA</p>
+                    <p className="reference-info">📧 damien.archer@aviation-civile.gouv.fr</p>
+                  </div>
                 </div>
-              </div>
-            </section>
+              </section>
+            </Reveal>
           </main>
         </div>
       </div>
