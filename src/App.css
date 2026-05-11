@@ -504,6 +504,22 @@ body {
 
 .light .section-title { border-bottom-color: var(--border-l); }
 
+.section-subtitle-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-top: -1rem;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.light .section-subtitle-tag { color: var(--accent-l); border-color: var(--accent-l); }
+
 .section-text {
   line-height: 1.8;
   font-size: 0.9rem;
@@ -1153,10 +1169,9 @@ body {
    ======================================== */
 
 @media print {
-  /* 1. Reset Global pour le papier */
   @page {
-    margin: 1cm; /* Marges physiques de la feuille */
     size: A4;
+    margin: 0.8cm 1cm;
   }
 
   * {
@@ -1168,7 +1183,7 @@ body {
 
   body {
     background: white !important;
-    font-size: 10pt; /* Taille de police standard CV */
+    font-size: 9.5pt;
   }
 
   .app-container, .dark-mode, .light-mode, .app-container.dark, .app-container.light {
@@ -1179,7 +1194,7 @@ body {
     min-height: auto !important;
   }
 
-  /* 2. Cacher l'UI web + effets animés */
+  /* Cacher l'UI web + effets animés */
   .header, .footer, .btn-download, .btn-theme, .availability-badge::before,
   .ambient-glow, .typing-cursor {
     display: none !important;
@@ -1191,98 +1206,293 @@ body {
     transition: none !important;
   }
 
-  /* 3. Layout Print : On élargit la sidebar */
+  /* Wrapper */
   .main-wrapper {
     padding: 0 !important;
     margin: 0 !important;
     max-width: 100% !important;
   }
 
+  /* ── 2-column grid — mirrors the desktop layout ── */
   .grid-container {
     display: grid !important;
-    /* 260px est le sweet spot pour que tes tags et contacts ne s'empilent pas */
-    grid-template-columns: 260px 1fr !important; 
-    gap: 1.5cm !important;
-    align-items: start;
+    grid-template-columns: 220px 1fr !important;
+    gap: 0 !important;
+    align-items: start !important;
+    background: linear-gradient(to right, #f0eeff 220px, white 220px) !important;
+    min-height: 100% !important;
   }
 
-  /* 4. Sidebar Print */
+  /* ── Sidebar ── */
   .sidebar {
-    background: #fdfdfd !important; /* Très léger gris pour structure */
+    background: transparent !important;
     border: none !important;
-    border-right: 1px solid #eee !important;
-    padding: 0 1cm 0 0 !important; /* On utilise du padding interne */
-    height: 100%;
+    border-right: 2pt solid #7b61ff !important;
+    padding: 0.3cm 0.4cm 0.5cm 0.2cm !important;
+    height: auto !important;
+    position: static !important;
+    overflow: visible !important;
+  }
+
+  /* Reset the inline-block trick used in old print CSS */
+  .sidebar-section {
+    display: block !important;
+    width: auto !important;
+    vertical-align: unset !important;
+    margin-bottom: 0.35cm !important;
   }
 
   .avatar {
-    width: 80px !important;
-    height: 80px !important;
-    margin-bottom: 10px !important;
+    width: 68px !important;
+    height: 68px !important;
+    margin-bottom: 5px !important;
+    border: 2pt solid #7b61ff !important;
   }
 
-  .sidebar-name { font-size: 1.4rem !important; margin-top: 10px !important; }
-  .sidebar-subtitle { font-size: 0.9rem !important; margin-bottom: 1.5cm !important; white-space: pre-wrap !important; }
+  .sidebar-name {
+    font-size: 11pt !important;
+    color: #111 !important;
+    opacity: 1 !important;
+    margin-top: 5px !important;
+  }
+
+  .sidebar-subtitle {
+    font-size: 7.5pt !important;
+    color: #444 !important;
+    opacity: 1 !important;
+    margin-bottom: 0.25cm !important;
+    white-space: pre-wrap !important;
+  }
+
+  .stats-strip {
+    border-top: 1pt solid #c4b5fd !important;
+    border-bottom: 1pt solid #c4b5fd !important;
+    padding: 5pt 0 !important;
+    margin-bottom: 0.3cm !important;
+  }
+
+  .stat-value {
+    font-size: 10pt !important;
+    color: #7b61ff !important;
+    opacity: 1 !important;
+  }
+
+  .stat-label {
+    font-size: 6.5pt !important;
+    color: #555 !important;
+    opacity: 1 !important;
+  }
+
+  .sidebar .section-label {
+    font-size: 7pt !important;
+    letter-spacing: 0.08em !important;
+    color: #7b61ff !important;
+    opacity: 1 !important;
+    margin-bottom: 5pt !important;
+  }
+
+  .contact-item {
+    gap: 5pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  .contact-icon { width: 10px !important; height: 10px !important; color: #7b61ff !important; opacity: 1 !important; }
+
+  .contact-text {
+    font-size: 7.5pt !important;
+    color: #222 !important;
+    opacity: 1 !important;
+  }
 
   .skills-container {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 4pt !important;
+    gap: 3pt !important;
   }
 
   .skill-tag {
-    font-size: 8pt !important;
-    padding: 2pt 5pt !important;
-    border: 1px solid #ccc !important;
+    font-size: 6.5pt !important;
+    padding: 1.5pt 4pt !important;
+    border: 1px solid #c4b5fd !important;
     background: white !important;
+    color: #444 !important;
+    opacity: 1 !important;
   }
 
-  /* 5. Corps du CV */
+  .language-item { margin-bottom: 5pt !important; }
+
+  .language-name {
+    font-size: 8pt !important;
+    color: #111 !important;
+    opacity: 1 !important;
+  }
+
+  .language-level {
+    font-size: 7pt !important;
+    color: #555 !important;
+    opacity: 1 !important;
+  }
+
+  .lang-dots span {
+    width: 6px !important;
+    height: 6px !important;
+  }
+
+  /* ── Main content ── */
+  .main-content {
+    padding: 0.3cm 0 0 0.5cm !important;
+    gap: 0 !important;
+  }
+
   .content-section {
     padding: 0 !important;
-    margin-bottom: 1.2cm !important;
+    margin-bottom: 0.7cm !important;
     border: none !important;
     background: transparent !important;
   }
 
   .section-title {
-    font-size: 11pt !important;
-    margin-bottom: 0.8cm !important;
-    color: #000 !important;
-    border-bottom: 1.5pt solid #7b61ff !important; /* Ligne d'accentuation */
+    font-size: 10.5pt !important;
+    margin-bottom: 0.35cm !important;
+    color: #111 !important;
+    border-bottom: 1.5pt solid #7b61ff !important;
+    padding-bottom: 3pt !important;
+    opacity: 1 !important;
   }
 
-  /* Timeline & Spacing */
+  /* All text dark */
+  .section-text, .timeline-list li, .timeline-description,
+  .portfolio-featured-desc, .portfolio-card-desc, .mention-desc,
+  .service-text, .reference-company, .reference-info {
+    color: #333 !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-subtitle, .portfolio-featured-subtitle, .portfolio-card-subtitle {
+    color: #555 !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-title, .portfolio-featured-title, .portfolio-card-title,
+  .reference-name, .service-title, .mention-title {
+    color: #111 !important;
+    opacity: 1 !important;
+  }
+
+  .section-label, .mention-label {
+    color: #666 !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-badge, .proj-badge, .stat-value {
+    color: #7b61ff !important;
+    opacity: 1 !important;
+  }
+
+  .proj-badge--production { color: #16a34a !important; }
+  .proj-badge--production::before { background: #16a34a !important; box-shadow: none !important; }
+
+  /* Timeline */
   .timeline {
-    border-left: 1pt solid #ddd !important;
-    margin-bottom: 0.8cm !important;
+    border-left: 1pt solid #c4b5fd !important;
+    margin-bottom: 0.4cm !important;
   }
 
-  .timeline-badge { font-size: 8pt !important; margin-bottom: 2pt !important; }
-  .timeline-title { font-size: 10pt !important; }
-  .timeline-list li { margin-bottom: 2pt !important; }
+  .timeline-badge { font-size: 7.5pt !important; margin-bottom: 2pt !important; }
+  .timeline-title { font-size: 9.5pt !important; }
+  .timeline-list li { margin-bottom: 2pt !important; font-size: 8.5pt !important; }
+  .timeline-description { font-size: 8.5pt !important; }
 
-  /* 6. Éviter les coupures d'éléments entre deux pages */
-  .content-section, .timeline, .reference-card, .service-card {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
+  .section-subtitle-tag {
+    font-size: 7pt !important;
+    color: #7b61ff !important;
+    border-color: #7b61ff !important;
+    opacity: 1 !important;
+    margin-bottom: 6pt !important;
   }
 
-  /* Services Grid (2 colonnes propres en print) */
+  /* Services Grid */
   .services-grid {
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
-    gap: 10pt !important;
+    gap: 6pt !important;
   }
 
   .service-card {
-    border: 1px solid #eee !important;
-    padding: 8pt !important;
+    background: #fafafa !important;
+    border: 1pt solid #e8e4ff !important;
+    padding: 6pt !important;
   }
 
-  .service-icon { width: 18px !important; height: 18px !important; }
+  .service-icon { width: 14px !important; height: 14px !important; color: #7b61ff !important; opacity: 1 !important; }
+  .service-title { font-size: 8.5pt !important; }
+  .service-text { font-size: 7.5pt !important; }
+
+  /* Portfolio — featured cards */
+  .portfolio-featured {
+    border: none !important;
+    border-left: 3pt solid #7b61ff !important;
+    border-radius: 0 !important;
+    background: #faf9ff !important;
+    padding: 6pt 8pt !important;
+    margin-bottom: 6pt !important;
+  }
+
+  .portfolio-featured::before { display: none !important; }
+
+  .portfolio-featured.production {
+    border-left-color: #16a34a !important;
+    background: #f6fef9 !important;
+  }
+
+  .portfolio-featured-title { font-size: 10pt !important; }
+  .portfolio-featured-subtitle { font-size: 7.5pt !important; }
+  .portfolio-featured-desc { font-size: 8pt !important; margin-bottom: 5pt !important; }
+
+  .portfolio-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6pt !important;
+  }
+
+  .portfolio-card {
+    background: transparent !important;
+    border: 1pt solid #e8e4ff !important;
+    padding: 6pt !important;
+  }
+
+  .portfolio-mention {
+    background: transparent !important;
+    border: 1pt dashed #c4b5fd !important;
+    padding: 5pt !important;
+  }
+
+  .stack-tag {
+    font-size: 6.5pt !important;
+    padding: 1pt 4pt !important;
+    background: white !important;
+    border-color: #c4b5fd !important;
+    color: #7b61ff !important;
+    opacity: 1 !important;
+  }
+
+  .proj-badge { font-size: 6.5pt !important; }
+  .portfolio-link, .portfolio-card-link { display: none !important; }
+
+  /* Reference card */
+  .reference-card {
+    background: transparent !important;
+    border: 1pt solid #e8e4ff !important;
+    border-left: 2.5pt solid #7b61ff !important;
+  }
 
   /* Photo Avion */
-  .avion-photo-wrapper { width: 120px !important; }
-  .avion-photo { height: 160px !important; border-radius: 4px !important; }
+  .avion-photo-wrapper { width: 90px !important; }
+  .avion-photo { height: 120px !important; border-radius: 3px !important; }
+
+  /* Page breaks */
+  .content-section, .timeline, .reference-card, .service-card, .portfolio-featured {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
 }

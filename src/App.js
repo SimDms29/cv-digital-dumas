@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Wrench, ExternalLink } from 'lucide-react';
+import { Moon, Sun, Download, Mail, Phone, MapPin, Code, Database, Rocket, Wrench, ExternalLink, Globe } from 'lucide-react';
 import './App.css';
 
 function useTypewriter(text, speed = 38) {
@@ -90,7 +90,8 @@ const content = {
         text: "Junior en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL et le traitement de données complexes (XML / SQL). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
       },
       services: {
-        title: "Services Freelance",
+        title: "Expertises",
+        subtitle: "Disponible en alternance ou en freelance",
         intro: "J'interviens sur la modernisation de vos flux de données et la création d'applications métier à forte valeur ajoutée.",
         cards: [
           { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API)." },
@@ -141,11 +142,11 @@ const content = {
           {
             badgeLabel: "Projet Personnel · En production",
             badgeType: "personal",
-            title: "AeroWatch",
-            subtitle: "Veille Recrutement PNT · aerowatch.wingfuel.fr",
+            title: "WingJobs",
+            subtitle: "Veille Recrutement PNT · jobs.wingfuel.fr",
             desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 7 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
-            link: { url: "https://aerowatch.wingfuel.fr", label: "aerowatch.wingfuel.fr →" }
+            link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           }
         ],
         secondary: [
@@ -169,7 +170,7 @@ const content = {
       formation: {
         title: "Formation",
         items: [
-          { date: "2025 - 2027", title: "Master Informatique", school: "UBO - Brest", desc: "Ingénierie du Logiciel" },
+          { date: "2025 - 2027", title: "Master ILIADE", school: "UBO - Brest", desc: "Ingénierie du Logiciel" },
           { date: "2022 - 2025", title: "Licence en Informatique", school: "UBO - Brest", desc: "Fondements, algorithmique et bases de données" },
           { date: "2022", title: "Baccalauréat Général", school: "Lycée de l'Iroise - Brest", desc: "Spécialités Mathématiques et Physique, Mention Bien." }
         ]
@@ -188,7 +189,7 @@ const content = {
   },
   en: {
     title: "Simon Dumas",
-    subtitle: "Data Engineer & Full Stack Python Developer",
+    subtitle: "Junior Data Engineer & Full Stack Python Developer",
     download: "Download PDF",
     status: "Available for projects",
     contact: "Contact",
@@ -206,7 +207,8 @@ const content = {
         text: "Junior in data engineering and SaaS development. My experience at the French DGAC focuses on optimizing critical ETL pipelines and processing complex standards (AIXM). Driven by technical efficiency, I transform heavy business logic into fluid, high-performance, and scalable architectures."
       },
       services: {
-        title: "Freelance Services",
+        title: "Expertise",
+        subtitle: "Available for work-study or freelance",
         intro: "I help businesses modernize their data flows and build high-value custom software solutions.",
         cards: [
           { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API)." },
@@ -257,11 +259,11 @@ const content = {
           {
             badgeLabel: "Personal Project · Coming Soon",
             badgeType: "personal",
-            title: "AeroWatch",
-            subtitle: "Pilot Job Monitor · aerowatch.wingfuel.fr",
+            title: "WingJobs",
+            subtitle: "Pilot Job Monitor · jobs.wingfuel.fr",
             desc: "Automated dashboard aggregating pilot job listings from 7 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
-            link: { url: "https://github.com/SimDms29/Scanner_Pilot_Job_V2", label: "View on GitHub" }
+            link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           }
         ],
         secondary: [
@@ -391,6 +393,10 @@ export default function CVApp() {
             <Reveal delay={150}>
               <div className="sidebar-section">
                 <h3 className="section-label">{t.contact}</h3>
+                <a href="https://cv.wingfuel.fr" target="_blank" rel="noopener noreferrer" className="contact-item">
+                  <Globe size={18} className="contact-icon" />
+                  <span className="contact-text">cv.wingfuel.fr</span>
+                </a>
                 <a href="mailto:dumassimon22@gmail.com" className="contact-item">
                   <Mail size={18} className="contact-icon" />
                   <span className="contact-text">dumassimon22@gmail.com</span>
@@ -466,6 +472,7 @@ export default function CVApp() {
             <Reveal>
               <section id="services" className={`content-section ${activeSection === 'services' ? 'active' : ''}`}>
                 <h2 className="section-title">{t.sections.services.title}</h2>
+                <p className="section-subtitle-tag">{t.sections.services.subtitle}</p>
                 <p className="section-text" style={{ marginBottom: '1.5rem' }}>{t.sections.services.intro}</p>
                 <div className="services-grid">
                   {t.sections.services.cards.map((card, i) => (
