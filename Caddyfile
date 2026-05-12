@@ -1,3 +1,7 @@
 cv.wingfuel.fr {
   reverse_proxy cv:80
 }
+
+jobs.wingfuel.fr {
+  reverse_proxy scanner_pilot_job_v2-wingjobs-1:8000
+}
