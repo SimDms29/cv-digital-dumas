@@ -87,17 +87,17 @@ const content = {
     sections: {
       profil: {
         title: "Profil",
-        text: "Junior en ingénierie de données et développement de solutions SaaS métier. Mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL et le traitement de données complexes (XML / SQL). Passionné par l'efficacité technique, je transforme des problématiques métier lourdes en architectures fluides, performantes et scalables."
+        text: "Data engineer junior, mon parcours à la DGAC m'a permis de me spécialiser dans l'optimisation de pipelines ETL et le traitement de données complexes (XML / SQL)."
       },
       services: {
-        title: "Expertises",
-        subtitle: "Disponible en alternance ou en freelance",
-        intro: "J'interviens sur la modernisation de vos flux de données et la création d'applications métier à forte valeur ajoutée.",
+        title: "Compétences",
+        subtitle: "Disponible pour des missions de courtes durées",
+        intro: "J'interviens sur la modernisation de flux de données et la création d'applications métier à forte valeur ajoutée.",
         cards: [
           { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API)." },
           { title: "Développement SaaS & API", text: "Conception d'applications full-stack avec FastAPI (Python) et React. Architecture robuste et sécurisée." },
           { title: "Solutions Temps Réel", text: "Dashboards interactifs et outils de monitoring avec mise à jour instantanée via WebSockets." },
-          { title: "DevOps & Infrastructure", text: "Déploiement sur VPS, gestion de serveurs Linux et conteneurisation Docker" }
+          { title: "Infrastructure", text: "Déploiement sur VPS, conteneurisation Docker" }
         ]
       },
       experience: {
@@ -208,13 +208,13 @@ const content = {
       },
       services: {
         title: "Expertise",
-        subtitle: "Available for work-study or freelance",
-        intro: "I help businesses modernize their data flows and build high-value custom software solutions.",
+        subtitle: "Available for short terme mission",
+        intro: "I  modernize data flows and build high-value custom software solutions.",
         cards: [
           { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API)." },
           { title: "SaaS & API Dev", text: "Full-stack application design using FastAPI (Python) and React. Focused on performance and security." },
           { title: "Real-time Solutions", text: "Interactive monitoring dashboards with instant data updates via WebSockets." },
-          { title: "DevOps & Infra", text: "VPS management, Linux server configuration and Docker containerization" }
+          { title: "Infra", text: "VPS management and Docker containerization" }
         ]
       },
       experience: {
