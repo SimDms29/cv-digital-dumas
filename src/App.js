@@ -144,7 +144,7 @@ const content = {
             badgeType: "personal",
             title: "WingJobs",
             subtitle: "Veille Recrutement PNT · jobs.wingfuel.fr",
-            desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 7 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
+            desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 27 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           }
@@ -261,7 +261,7 @@ const content = {
             badgeType: "personal",
             title: "WingJobs",
             subtitle: "Pilot Job Monitor · jobs.wingfuel.fr",
-            desc: "Automated dashboard aggregating pilot job listings from 7 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
+            desc: "Automated dashboard aggregating pilot job listings from 27 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           }
