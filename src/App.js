@@ -79,7 +79,7 @@ const content = {
     license: "Permis B",
     skills: "Expertise Technique",
     languages: "Langues",
-    statLabels: { flight: 'h de vol', internships: 'stages DGAC' },
+    statLabels: { flight: 'h de vol', internships: 'expériences DGAC' },
     langItems: [
       { flag: "🇫🇷", name: "Français", level: "Langue maternelle" },
       { flag: "🇬🇧", name: "Anglais", level: "TOEIC 965 pts (Mai 2025)\nFCL 055 VFR Niveau 5" }
@@ -91,7 +91,7 @@ const content = {
       },
       services: {
         title: "Compétences",
-        subtitle: "Disponible pour des missions de courtes durées",
+        subtitle: "En alternance à la DGAC · Disponible pour des missions de courtes durées",
         intro: "J'interviens sur la modernisation de flux de données et la création d'applications métier à forte valeur ajoutée.",
         cards: [
           { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API)." },
@@ -105,7 +105,7 @@ const content = {
         items: [
           {
             date: "Avril 2026 - Présent",
-            job: "Data Engineer (Stage DGAC)",
+            job: "Data Engineer (Alternance DGAC)",
             company: "CRNA-Ouest, DGAC - Brest",
             tasks: [
               "Optimisation de l'ETL : Refonte complète et industrialisation d'un flux monolithique pour le traitement de données aéronautiques",
@@ -135,9 +135,18 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Gestion Logistique SaaS",
             subtitle: "Fondateur & Développeur · wingfuel.fr",
-            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), déploiement VPS — utilisé quotidiennement par des pilotes d'aéroclub.",
-            stack: ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "VPS"],
+            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), PWA installable sur mobile, déploiement VPS — utilisé quotidiennement par des pilotes d'aéroclub.",
+            stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
+          },
+          {
+            badgeLabel: "Freelance · Production",
+            badgeType: "production",
+            title: "France Danse Fédération — Plateforme fédérale",
+            subtitle: "Freelance (WingFuel) · francedansefederation.com",
+            desc: "Plateforme complète pour une fédération de danse : site vitrine public (Astro, optimisé SEO) et application métier privée. Gestion des structures affiliées et des adhérents, réinscription N+1, import CSV/XLSX avec rapport d'erreurs, génération automatique des licences PDF, tableau de bord admin et exports. Auth JWT sécurisée, CI/CD, sauvegardes, correctifs post-pentest et conformité RGPD.",
+            stack: ["FastAPI", "PostgreSQL", "React / TS", "Astro", "Docker", "Caddy", "CI/CD"],
+            link: { url: "https://francedansefederation.com", label: "francedansefederation.com →" }
           },
           {
             badgeLabel: "Projet Personnel · En production",
@@ -196,7 +205,7 @@ const content = {
     license: "Driving License",
     skills: "Technical Expertise",
     languages: "Languages",
-    statLabels: { flight: 'flight hrs', internships: 'DGAC terms' },
+    statLabels: { flight: 'flight hrs', internships: 'DGAC roles' },
     langItems: [
       { flag: "🇫🇷", name: "French", level: "Native speaker" },
       { flag: "🇬🇧", name: "English", level: "TOEIC 965 pts (May 2025)\nFCL 055 VFR Level 5 (ICAO)" }
@@ -208,8 +217,8 @@ const content = {
       },
       services: {
         title: "Expertise",
-        subtitle: "Available for short terme mission",
-        intro: "I  modernize data flows and build high-value custom software solutions.",
+        subtitle: "Apprentice at the French DGAC · Available for short-term missions",
+        intro: "I modernize data flows and build high-value custom software solutions.",
         cards: [
           { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API)." },
           { title: "SaaS & API Dev", text: "Full-stack application design using FastAPI (Python) and React. Focused on performance and security." },
@@ -222,7 +231,7 @@ const content = {
         items: [
           {
             date: "April 2026 - Present",
-            job: "Data Engineer (DGAC Mission)",
+            job: "Data Engineer (Apprenticeship, DGAC)",
             company: "CRNA-Ouest, French ATC - Brest",
             tasks: [
               "ETL Optimization: Complete overhaul and industrialization of a monolithic flow for aeronautical data",
@@ -252,12 +261,21 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Aviation Fuel SaaS",
             subtitle: "Founder & Lead Developer · wingfuel.fr",
-            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, VPS deployment — used daily by air club pilots.",
-            stack: ["Python", "FastAPI", "React", "PostgreSQL", "Docker", "VPS"],
+            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, installable mobile PWA, VPS deployment — used daily by air club pilots.",
+            stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
           },
           {
-            badgeLabel: "Personal Project · Coming Soon",
+            badgeLabel: "Freelance · Live",
+            badgeType: "production",
+            title: "France Danse Fédération — Federation Platform",
+            subtitle: "Freelance (WingFuel) · francedansefederation.com",
+            desc: "End-to-end platform for a national dance federation: public SEO-optimized Astro website plus a private business application. Affiliated club and member management, yearly re-registration, CSV/XLSX import with error reporting, automated PDF license generation, admin dashboard and exports. Secure JWT auth, CI/CD, automated backups, post-pentest hardening and GDPR compliance.",
+            stack: ["FastAPI", "PostgreSQL", "React / TS", "Astro", "Docker", "Caddy", "CI/CD"],
+            link: { url: "https://francedansefederation.com", label: "francedansefederation.com →" }
+          },
+          {
+            badgeLabel: "Personal Project · Live",
             badgeType: "personal",
             title: "WingJobs",
             subtitle: "Pilot Job Monitor · jobs.wingfuel.fr",
