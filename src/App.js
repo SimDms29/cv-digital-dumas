@@ -135,7 +135,7 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Gestion Logistique SaaS",
             subtitle: "Fondateur & Développeur · wingfuel.fr",
-            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), PWA installable sur mobile, supervision sécurité (détection d'intrusion) et sauvegardes chiffrées — utilisé quotidiennement par des pilotes d'aéroclub.",
+            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), statistiques et exports PDF (coût de l'heure de vol), PWA avec notifications push, supervision sécurité (détection d'intrusion) et sauvegardes chiffrées — utilisé quotidiennement par des pilotes d'aéroclub.",
             stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
           },
@@ -153,8 +153,8 @@ const content = {
             badgeType: "personal",
             title: "WingJobs",
             subtitle: "Veille Recrutement PNT · jobs.wingfuel.fr",
-            desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 27 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
-            stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
+            desc: "Agrège les offres pilote de 78 opérateurs européens (29 pays), scannés toutes les 3 h via APIs ATS, scraping HTML et Playwright. Offres normalisées (rôle, qualification de type, base, heures de vol exigées), nouveautés et expirations détectées automatiquement, carte interactive, pages SEO par offre et par opérateur, comptes pilote avec alertes email (connexion par lien magique).",
+            stack: ["Python", "FastAPI", "Playwright", "SQLite", "React", "Leaflet"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           },
           {
@@ -162,8 +162,8 @@ const content = {
             badgeType: "personal",
             title: "WingGames — Hub & Wings",
             subtitle: "Jeu de gestion aéroportuaire · games.wingfuel.fr",
-            desc: "Jeu de gestion dans le navigateur : partir d'une bande en herbe sur le vrai plan de l'aéroport de Brest (OpenStreetMap) et en faire un hub en six ans, en dirigeant l'aéroport et sa propre compagnie (flotte, ~50 lignes européennes, météo, régulateur). Rendu WebGL, gratuit et sans inscription.",
-            stack: ["React", "PixiJS", "WebGL", "OpenStreetMap"],
+            desc: "Jeu de gestion dans le navigateur : partir d'une bande en herbe sur le vrai plan de l'aéroport de Brest (OpenStreetMap) et en faire un hub en six ans, en dirigeant l'aéroport et sa propre compagnie (flotte, ~50 lignes européennes, météo, régulateur). Monorepo TypeScript : simulation déterministe et rejouable séparée du rendu WebGL, contenu validé par schémas.",
+            stack: ["TypeScript", "React", "PixiJS", "Zod", "Vitest", "OpenStreetMap"],
             link: { url: "https://games.wingfuel.fr", label: "games.wingfuel.fr →" }
           }
         ],
@@ -270,7 +270,7 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Aviation Fuel SaaS",
             subtitle: "Founder & Lead Developer · wingfuel.fr",
-            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, installable mobile PWA, security monitoring (intrusion detection) and encrypted backups — used daily by air club pilots.",
+            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, statistics and PDF exports (cost per flight hour), PWA with push notifications, security monitoring (intrusion detection) and encrypted backups — used daily by air club pilots.",
             stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
           },
@@ -288,8 +288,8 @@ const content = {
             badgeType: "personal",
             title: "WingJobs",
             subtitle: "Pilot Job Monitor · jobs.wingfuel.fr",
-            desc: "Automated dashboard aggregating pilot job listings from 27 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
-            stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
+            desc: "Aggregates pilot job listings from 78 European operators (29 countries), scanned every 3 hours via ATS APIs, HTML scraping and Playwright. Normalized listings (role, type rating, base, required flight hours), automatic detection of new and expired jobs, interactive map, SEO pages per job and operator, pilot accounts with email alerts (magic-link sign-in).",
+            stack: ["Python", "FastAPI", "Playwright", "SQLite", "React", "Leaflet"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
           },
           {
@@ -297,8 +297,8 @@ const content = {
             badgeType: "personal",
             title: "WingGames — Hub & Wings",
             subtitle: "Airport management game · games.wingfuel.fr",
-            desc: "Browser management game: start from a grass strip on the real layout of Brest airport (OpenStreetMap) and grow it into a hub over six years, running both the airport and your own airline (fleet, ~50 European routes, weather, regulator). WebGL rendering, free, no sign-up.",
-            stack: ["React", "PixiJS", "WebGL", "OpenStreetMap"],
+            desc: "Browser management game: start from a grass strip on the real layout of Brest airport (OpenStreetMap) and grow it into a hub over six years, running both the airport and your own airline (fleet, ~50 European routes, weather, regulator). TypeScript monorepo: deterministic, replayable simulation decoupled from WebGL rendering, schema-validated content.",
+            stack: ["TypeScript", "React", "PixiJS", "Zod", "Vitest", "OpenStreetMap"],
             link: { url: "https://games.wingfuel.fr", label: "games.wingfuel.fr →" }
           }
         ],
@@ -345,7 +345,7 @@ const content = {
 const skillsList = [
   'Data Engineering', 'Python', 'FastApi', 'SQL Optimization', 'PostgreSQL',
   'ETL Industrialization', 'Architecture SaaS', 'React', 'TypeScript',
-  'WebSockets', 'Docker', 'Caddy', 'Linux / VPS Management'
+  'WebSockets', 'Playwright', 'Docker', 'Caddy', 'Linux / VPS Management'
 ];
 
 export default function CVApp() {
