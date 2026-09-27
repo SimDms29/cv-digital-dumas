@@ -4,28 +4,10 @@ services:
     build: .
     container_name: cv-simon-dumas
     restart: unless-stopped
-    # Plus exposé publiquement — seulement accessible par Caddy en interne
-
-  caddy:
-    image: caddy:alpine
-    container_name: caddy-cv
-    restart: unless-stopped
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data       # stocke les certificats Let's Encrypt
-      - caddy_config:/config
-    depends_on:
-      - cv
+    # Aucun port publié : le Caddy du VPS (/root/emplacement-code/proxy) termine
+    # le TLS et joint le conteneur par le réseau `web`.
     networks:
-      - default
       - web
-
-volumes:
-  caddy_data:
-  caddy_config:
 
 networks:
   web:

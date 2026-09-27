@@ -7,7 +7,6 @@ CV digital de Simon Dumas, accessible sur [cv.wingfuel.fr](https://cv.wingfuel.f
 - React (Create React App)
 - CSS custom — dark mode par défaut, light mode disponible
 - Nginx (serve des fichiers statiques dans le conteneur)
-- Caddy (reverse proxy + SSL Let's Encrypt automatique)
 - Docker + Docker Compose
 
 ## Développement
@@ -25,8 +24,9 @@ git pull
 docker compose up -d --build
 ```
 
-Caddy gère automatiquement le certificat SSL pour `cv.wingfuel.fr`.  
-Les certificats sont persistés dans le volume Docker `caddy_data`.
+Le conteneur rejoint le réseau Docker externe `web` sans publier de port. Le TLS et
+le certificat de `cv.wingfuel.fr` sont gérés par le Caddy commun du VPS WingFuel
+(`/root/emplacement-code/proxy`), hors de ce dépôt.
 
 ## Assets
 
