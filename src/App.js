@@ -97,7 +97,7 @@ const content = {
           { title: "Ingénierie de Données", text: "Industrialisation et optimisation de pipelines ETL/ELT (Python). Ingestion de flux complexes (XML, API)." },
           { title: "Développement SaaS & API", text: "Conception d'applications full-stack avec FastAPI (Python) et React. Architecture robuste et sécurisée." },
           { title: "Solutions Temps Réel", text: "Dashboards interactifs et outils de monitoring avec mise à jour instantanée via WebSockets." },
-          { title: "Infrastructure", text: "Déploiement sur VPS, conteneurisation Docker" }
+          { title: "Infrastructure", text: "VPS mutualisé (WingFuel, WingJobs, WingGames, ce CV) : reverse-proxy Caddy avec TLS automatique, conteneurs Docker, sauvegardes chiffrées." }
         ]
       },
       experience: {
@@ -135,7 +135,7 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Gestion Logistique SaaS",
             subtitle: "Fondateur & Développeur · wingfuel.fr",
-            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), PWA installable sur mobile, déploiement VPS — utilisé quotidiennement par des pilotes d'aéroclub.",
+            desc: "SaaS complet de gestion carburant pour l'Aviation Générale. Architecture multi-tenant, moteur de valorisation financière (PMP), PWA installable sur mobile, supervision sécurité (détection d'intrusion) et sauvegardes chiffrées — utilisé quotidiennement par des pilotes d'aéroclub.",
             stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
           },
@@ -156,6 +156,15 @@ const content = {
             desc: "Dashboard automatisé qui agrège les offres d'emploi pilote de 27 compagnies européennes. Scraping multi-sources toutes les 12h, API REST de filtrage, notifications Discord et déclenchement manuel.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
+          },
+          {
+            badgeLabel: "Jeu · Accès anticipé",
+            badgeType: "personal",
+            title: "WingGames — Hub & Wings",
+            subtitle: "Jeu de gestion aéroportuaire · games.wingfuel.fr",
+            desc: "Jeu de gestion dans le navigateur : partir d'une bande en herbe sur le vrai plan de l'aéroport de Brest (OpenStreetMap) et en faire un hub en six ans, en dirigeant l'aéroport et sa propre compagnie (flotte, ~50 lignes européennes, météo, régulateur). Rendu WebGL, gratuit et sans inscription.",
+            stack: ["React", "PixiJS", "WebGL", "OpenStreetMap"],
+            link: { url: "https://games.wingfuel.fr", label: "games.wingfuel.fr →" }
           }
         ],
         secondary: [
@@ -223,7 +232,7 @@ const content = {
           { title: "Data Engineering", text: "ETL/ELT pipeline industrialization and optimization (Python). Complex data ingestion (XML, API)." },
           { title: "SaaS & API Dev", text: "Full-stack application design using FastAPI (Python) and React. Focused on performance and security." },
           { title: "Real-time Solutions", text: "Interactive monitoring dashboards with instant data updates via WebSockets." },
-          { title: "Infra", text: "VPS management and Docker containerization" }
+          { title: "Infra", text: "Shared VPS (WingFuel, WingJobs, WingGames, this CV): Caddy reverse proxy with automatic TLS, Docker containers, encrypted backups." }
         ]
       },
       experience: {
@@ -261,7 +270,7 @@ const content = {
             badgeType: "production",
             title: "WingFuel — Aviation Fuel SaaS",
             subtitle: "Founder & Lead Developer · wingfuel.fr",
-            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, installable mobile PWA, VPS deployment — used daily by air club pilots.",
+            desc: "Full-stack fuel management SaaS for general aviation. Multi-tenant architecture, Weighted Average Cost engine, installable mobile PWA, security monitoring (intrusion detection) and encrypted backups — used daily by air club pilots.",
             stack: ["Python", "FastAPI", "React", "PWA", "PostgreSQL", "Docker", "VPS"],
             link: { url: "https://wingfuel.fr", label: "wingfuel.fr →" }
           },
@@ -282,6 +291,15 @@ const content = {
             desc: "Automated dashboard aggregating pilot job listings from 27 European airlines. Multi-source scraping every 12h, REST filtering API, Discord notifications and manual scan trigger.",
             stack: ["Python", "FastAPI", "Web Scraping", "REST API", "Discord API"],
             link: { url: "https://jobs.wingfuel.fr", label: "jobs.wingfuel.fr →" }
+          },
+          {
+            badgeLabel: "Game · Early Access",
+            badgeType: "personal",
+            title: "WingGames — Hub & Wings",
+            subtitle: "Airport management game · games.wingfuel.fr",
+            desc: "Browser management game: start from a grass strip on the real layout of Brest airport (OpenStreetMap) and grow it into a hub over six years, running both the airport and your own airline (fleet, ~50 European routes, weather, regulator). WebGL rendering, free, no sign-up.",
+            stack: ["React", "PixiJS", "WebGL", "OpenStreetMap"],
+            link: { url: "https://games.wingfuel.fr", label: "games.wingfuel.fr →" }
           }
         ],
         secondary: [
@@ -327,7 +345,7 @@ const content = {
 const skillsList = [
   'Data Engineering', 'Python', 'FastApi', 'SQL Optimization', 'PostgreSQL',
   'ETL Industrialization', 'Architecture SaaS', 'React', 'TypeScript',
-  'WebSockets', 'Docker', 'Linux / VPS Management'
+  'WebSockets', 'Docker', 'Caddy', 'Linux / VPS Management'
 ];
 
 export default function CVApp() {
